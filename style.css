@@ -1,4 +1,7 @@
-p{
-    font-size: xx-large;
-    color: red;
+.button{
+    background-color: aqua;
+}
+
+.button:hover{
+    background-color: red;
 }
