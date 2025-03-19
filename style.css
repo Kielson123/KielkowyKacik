@@ -1,7 +1,34 @@
+body{
+    background-color: rgb(20, 20, 30);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .button{
-    background-color: aqua;
+    background-color:rgb(120, 175, 230);
+    cursor:pointer;
+    padding: 6px;
+    margin-bottom: 5px;
+    min-height: 25px;
+    
 }
 
 .button:hover{
-    background-color: red;
+    background-color:rgb(100, 149, 237);
+}
+
+aside{
+    float: left;
+    width: 125px;
+    padding: 10px;
+}
+
+main{
+    float: left;
+    width:1050px;
+    padding: 10px;
+    padding-left: 35px;
+    margin-top: 10px;
+    height: 800px;
+    background-color:rgb(40, 40, 70);
+    color: aliceblue;
 }
