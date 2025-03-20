@@ -19,8 +19,13 @@ html {
     border-radius: 10px 0px 0px 10px;
 }
 
+.button#clicked{
+    background-color:rgb(100, 149, 237);
+}
+
 .button:hover{
     background-color:rgb(100, 149, 237);
+    transition: all 0.5s;
 }
 
 body{
@@ -38,6 +43,7 @@ aside{
 }
 
 main{
+    height: max-content;
     padding: 35px;
     margin-top: 10px;
     width: 94.5%;
