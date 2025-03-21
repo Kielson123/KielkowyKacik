@@ -3,7 +3,8 @@ const code_inf = [
             "Title": "Sortowanie bąbelkowe",
             "Description": "Lepsze .sort()",
             "Codes": [
-                    `import random
+                    `
+                    import random
 
                     n = int(input("Podaj wielkość zbioru: "))
                     wart_min = int(input("Podaj najmniejszą możliwą liczbę: "))
@@ -26,7 +27,8 @@ const code_inf = [
             "Title": "Szyfr kolumnowy",
             "Description": "Szyfr jakiś",
             "Codes": [
-                    `import random
+                    `
+                    import random
 
                     n = int(input("Podaj wielkość zbioru: "))
                     x = int(input("Podaj szukaną: "))
@@ -69,21 +71,19 @@ function onInfClicked(){
     let tekst = ``
     for(let i = 0; i < code_inf.length; i++){
         tekst += `
-            <section class="python">
+            <section>
                 <h1>${code_inf[i].Title}</h1>
-                <article>
                     `
         for(let j = 0; j < code_inf[i].Codes.length; j++){
             tekst += `
-                <p class="code">
-                    ${colorPythonCode(code_inf[i].Codes[j])}
-                </p><br>`
+                <pre class="lang-python"><code>
+                    ${code_inf[i].Codes[j]}
+                </code></pre><br>`
         }
         tekst +=
-                    `<p>
-                        ${code_inf[i].Description}
-                    </p>
-                </article>
+                `<p>
+                    ${code_inf[i].Description}
+                </p>
             </section>
             <br><br>
             `
@@ -112,91 +112,6 @@ function changeButtonState(type){
         }
         buttons[i].id = "unclicked"
     }
-}
-
-
-//TODO do poprawki, użyj biblioteki
-function colorPythonCode(code){
-    let new_code = ""
-    for(let i = 0; i < code.length; i++){
-        if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] == " for "){
-            new_code += '<span id="kwd"> for </span>'
-            i += 4
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] == "input"){
-            new_code += '<span id="fun">input</span>'
-            i += 4
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] == "break"){
-            new_code += '<span id="kwd">break</span>'
-            i += 4
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] == "range"){
-            new_code += '<span id="fun">range</span>'
-            i += 4
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] + code[i+5] == "import"){
-            new_code += '<span id="kwd">import</span>'
-            i += 5
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] == "print"){
-            new_code += '<span id="fun">print</span>'
-            i += 4
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] + code[i+5] + code[i+6] == ".append"){
-            new_code += '.<span id="fun">append</span>'
-            i += 6
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] + code[i+4] + code[i+5] + code[i+6] + code[i+7] == ".randint"){
-            new_code += '.<span id="fun">randint</span>'
-            i += 7
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] == " in "){
-            new_code += '<span id="kwd"> in </span>'
-            i += 3
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] == "int"){
-            new_code += '<span id="fun">int</span>'
-            i += 2
-            continue
-        }
-        else if(code[i] + code[i+1] + code[i+2] + code[i+3] == " if "){
-            new_code += '<span id="kwd"> if </span>'
-            i += 3
-            continue
-        }
-        else if(code[i] == "\n"){
-            new_code += '<br>'
-            continue
-        }
-        else if(code[i] == "\t"){
-            new_code += '<br>'
-            continue
-        }
-        else if(code[i] == '"'){
-            new_code += '<span id="str">'
-            for(let j = 0; j < j + 1; j++){
-                new_code += code[i+j]
-                if(code[i+j] == '"'){
-                    i+=j+1
-                    break
-                }
-            }
-            new_code += '</span>'
-            continue
-        }
-        new_code += code[i]
-    }
-    return new_code
 }
 
 onInfClicked()

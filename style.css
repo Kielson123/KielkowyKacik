@@ -20,11 +20,11 @@ html {
 }
 
 .button#clicked{
-    background-color:rgb(100, 149, 237);
+    background-color:rgb(81, 134, 234);
 }
 
 .button:hover{
-    background-color:rgb(100, 149, 237);
+    background-color:rgb(81, 134, 234);
     transition: all 0.5s;
 }
 
@@ -54,26 +54,5 @@ main{
 article{
     padding: 15px 0px 22.5px 37.5px;
     max-width: 700px;
-}
-
-.code{
-    padding: 10px 0px 15px 25px;
-    background-color: rgb(20, 20, 35);
-    border-radius: 13px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.python{
-    span#fun{ 
-        color: rgb(124, 71, 160)
-    }
-    
-    span#kwd{
-        color: rgb(190, 111, 0)
-    }
-    
-    span#str{
-        color: rgb(94, 159, 94)
-    }
 }
 
