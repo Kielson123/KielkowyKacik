@@ -1,9 +1,11 @@
 const code_inf = [
     {
-            "Title": "Sortowanie bąbelkowe",
-            "Description": "Lepsze .sort()",
-            "Codes": [
-                    `
+        "Title": "Sortowanie bąbelkowe",
+        "Description": "Lepsze .sort()",
+        "Codes": [
+            {
+                "Language": "python",
+                "Code": `
                     import random
 
                     n = int(input("Podaj wielkość zbioru: "))
@@ -19,15 +21,17 @@ const code_inf = [
                         for j in range(0, n - i):
                             if A[j] > A[j + 1]:
                                 A[j], A[j + 1] = A[j + 1], A[j]
-                    
                     print(A)`
-            ]
+            }
+        ]
     },
     {
-            "Title": "Szyfr kolumnowy",
-            "Description": "Szyfr jakiś",
-            "Codes": [
-                    `
+        "Title": "Szyfr kolumnowy",
+        "Description": "Szyfr jakiś",
+        "Codes": [
+            {
+                "Language": "python",
+                "Code": `
                     import random
 
                     n = int(input("Podaj wielkość zbioru: "))
@@ -43,26 +47,31 @@ const code_inf = [
                         if A[i] == x:
                             komunikat = f"Znaleziono {x} o indeksie {i}"
                             break
-
-                    print(komunikat)`,
-                    `import random
-
+                    print(komunikat)`
+            },
+            {
+                "Language": "python",
+                "Code": `
+                    import random
+                
                     n = int(input("Podaj wielkość zbioru: "))
                     x = int(input("Podaj szukaną: "))
                     komunikat = f"Nie znaleziono {x}"
-
+                
                     A = []
                     for i in range(n):
                         A.append(random.randint(-10, 10))
                     print(A)
-
+                
                     for i in range(n):
                         if A[i] == x:
                             komunikat = f"Znaleziono {x} o indeksie {i}"
                             break
-
+                
                     print(komunikat)`
-            ]
+            }
+                
+        ]
     }
 ]
 
@@ -72,12 +81,11 @@ function onInfClicked(){
     for(let i = 0; i < code_inf.length; i++){
         tekst += `
             <section>
-                <h1>${code_inf[i].Title}</h1>
-                    `
+                <h1>${code_inf[i].Title}</h1>`
         for(let j = 0; j < code_inf[i].Codes.length; j++){
             tekst += `
-                <pre class="lang-python"><code>
-                    ${code_inf[i].Codes[j]}
+                <pre class="lang-${code_inf[i].Codes[j].Language}"><code>
+                    ${code_inf[i].Codes[j].Code}
                 </code></pre><br>`
         }
         tekst +=
@@ -115,3 +123,4 @@ function changeButtonState(type){
 }
 
 onInfClicked()
+console.log(document.getElementById('main_block'))
