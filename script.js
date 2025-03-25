@@ -1,3 +1,5 @@
+import Prism from "./themes/prism.js"
+
 const code_inf = [
     {
         "Title": "Sortowanie bąbelkowe",
@@ -84,7 +86,7 @@ function onInfClicked(){
                 <h1>${code_inf[i].Title}</h1>`
         for(let j = 0; j < code_inf[i].Codes.length; j++){
             tekst += `
-                <pre class="lang-${code_inf[i].Codes[j].Language}"><code>
+                <pre class="language-${code_inf[i].Codes[j].Language}"><code>
                     ${code_inf[i].Codes[j].Code}
                 </code></pre><br>`
         }
@@ -97,6 +99,7 @@ function onInfClicked(){
             `
     }
     addHtmlToMain(tekst)
+    Prism.highlightAll()
 }
 
 function onPaiClicked(){
@@ -123,4 +126,3 @@ function changeButtonState(type){
 }
 
 onInfClicked()
-console.log(document.getElementById('main_block'))
