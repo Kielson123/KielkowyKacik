@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiełkowy Kącik</title>
+    <link href="themes/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside>
+        <a id="clicked" class="button inf" href="./inf.html">Informatyka</a>
+        <a id="unclicked" class="button pai" href="./pai.html">PAI</a>
+    </aside>
+    <main>
+        <section>
+            <h1>Sortowanie bąbelkowe</h1>
+            <pre class="language-python"><code>
+                import random
+
+                    n = int(input("Podaj wielkość zbioru: "))
+                    wart_min = int(input("Podaj najmniejszą możliwą liczbę: "))
+                    wart_max = int(input("Podaj największą możliwą liczbę: "))
+
+                    A = []
+                    for i in range(n):
+                        A.append(random.randint(wart_min, wart_max))
+                    print(A)
+
+                    for i in range(1, n):
+                        for j in range(0, n - i):
+                            if A[j] > A[j + 1]:
+                                A[j], A[j + 1] = A[j + 1], A[j]
+                    print(A)
+            </code></pre><br><br>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="themes/prism.js"></script>
+</body>
+</html>

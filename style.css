@@ -10,21 +10,25 @@ html {
 }
 
 .button{
+    float: right;
     background-color:rgb(120, 175, 230);
     cursor:pointer;
     padding: 6px;
     margin-bottom: 5px;
     min-height: 25px;
-    min-width: 100px;
+    min-width: 125px;
     border-radius: 10px 0px 0px 10px;
+    color: black;
+    text-decoration: none;
+    font-size: large;
 }
 
 .button#clicked{
-    background-color:rgb(81, 134, 234);
+    background-color:rgb(55, 110, 211);
 }
 
 .button:hover{
-    background-color:rgb(81, 134, 234);
+    background-color:rgb(102, 147, 231);
     transition: all 0.5s;
 }
 
@@ -37,9 +41,9 @@ body{
 }
 
 aside{
-    float: left;
-    padding: 10px 3px 10px 10px;
+    padding: 10px 3px 10px 0px;
     flex-direction: column;
+    max-width: 150px;
 }
 
 main{
@@ -51,8 +55,7 @@ main{
     color: aliceblue;
 }
 
-article{
-    padding: 15px 0px 22.5px 37.5px;
-    max-width: 700px;
+section{
+    padding: 15px 0px 0px 37.5px;
 }
 
