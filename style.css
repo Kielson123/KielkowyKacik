@@ -11,7 +11,7 @@ html {
 
 .button{
     float: right;
-    background-color:rgb(120, 175, 230);
+    background-color:rgb(55, 110, 211);
     cursor:pointer;
     padding: 6px;
     margin-bottom: 5px;
@@ -24,11 +24,11 @@ html {
 }
 
 .button#clicked{
-    background-color:rgb(55, 110, 211);
+    background-color:rgb(120, 175, 230);
 }
 
 .button:hover{
-    background-color:rgb(102, 147, 231);
+    background-color:rgb(86, 131, 216);
     transition: all 0.5s;
 }
 
@@ -41,6 +41,7 @@ body{
 }
 
 aside{
+    display: flex;
     padding: 10px 3px 10px 0px;
     flex-direction: column;
     max-width: 150px;
@@ -59,3 +60,23 @@ section{
     padding: 15px 0px 0px 37.5px;
 }
 
+@media screen and (max-width: 800px){
+    body{
+        flex-direction: column;
+    }
+    .button{
+        border-radius: 10px 10px 0px 0px;
+        margin-bottom: 0px;
+        margin-right: 6px;
+    }
+    aside{
+        flex-direction: row;
+        padding-bottom: 0px;
+    }
+    main{
+        margin-top: 6px;
+    }
+    section{
+        padding: 15px 0px 0px 15px;
+    }
+}
