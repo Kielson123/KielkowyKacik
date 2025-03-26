@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiełkowy Kącik</title>
-    <link href="themes/prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="themes/prism.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,23 +14,196 @@
     <main>
         <section><!--Sortowanie bąbelkowe-->
             <h1>Sortowanie bąbelkowe</h1>
-            <pre class="language-python"><code>
+            <pre class="lang-python"><code>
                 import random
 
-                    n = int(input("Podaj wielkość zbioru: "))
-                    wart_min = int(input("Podaj najmniejszą możliwą liczbę: "))
-                    wart_max = int(input("Podaj największą możliwą liczbę: "))
+                n = int(input("Podaj wielkość zbioru: "))
+                wart_min = int(input("Podaj najmniejszą liczbę: "))
+                wart_max = int(input("Podaj największą liczbę: "))
 
-                    A = []
-                    for i in range(n):
-                        A.append(random.randint(wart_min, wart_max))
-                    print(A)
+                A = []
+                for i in range(n):
+                    A.append(random.randint(wart_min, wart_max))
+                print(A)
 
-                    for i in range(1, n):
-                        for j in range(0, n - i):
-                            if A[j] > A[j + 1]:
-                                A[j], A[j + 1] = A[j + 1], A[j]
-                    print(A)
+                for i in range(1, n):
+                    for j in range(0, n - i):
+                        if A[j] > A[j + 1]:
+                            A[j], A[j + 1] = A[j + 1], A[j]
+                print(A)
+            </code></pre><br><br>
+        </section>
+        <section><!--Przeszukiwanie binarne-->
+            <h1>Przeszukiwanie binarne</h1>
+            <pre class="lang-python"><code>
+                import random
+
+                n = int(input("Podaj wielkość zbioru: "))
+                x = int(input("Podaj szukaną: "))
+
+                A = []
+                for i in range(n):
+                    A.append(random.randint(-10, 10))
+                A.sort()
+                print(A)
+
+                lewy = 0
+                prawy = n - 1
+                while lewy < prawy:
+                    srodek = (lewy + prawy) // 2
+                    if A[srodek] < x:
+                        lewy = srodek + 1
+                    else:
+                        prawy = srodek
+
+                if A[lewy] == x:
+                    print(f"Znaleziono {x} o indeksie {lewy}")
+                else:
+                    print(f"Nie znaleziono {x}")
+            </code></pre><br><br>
+        </section>
+        <section><!--Przeszukiwanie liniowe-->
+            <h1>Przeszukiwanie liniowe</h1>
+            <pre class="lang-python"><code>
+                import random
+
+                n = int(input("Podaj wielkość zbioru: "))
+                x = int(input("Podaj szukaną: "))
+                komunikat = f"Nie znaleziono {x}"
+
+                A = []
+                for i in range(n):
+                    A.append(random.randint(-10, 10))
+                print(A)
+
+                for i in range(n):
+                    if A[i] == x:
+                        komunikat = f"Znaleziono {x} o indeksie {i}"
+                        break
+
+                print(komunikat)
+            </code></pre><br><br>
+        </section>
+        <section><!--Palindrom-->
+            <h1>Palindrom</h1>
+            <pre class="lang-python"><code>
+                def czy_palindrom(tekst):
+                    tekst = tekst.replace(" ", "").lower()
+                    dlugosc = len(tekst)
+                    for i in range(0, dlugosc // 2):
+                        if tekst[i] != tekst[dlugosc - i - 1]:
+                            return False
+                    return True
+
+                tekst = input("Podaj tekst: ")
+                if czy_palindrom(tekst):
+                    print(f"'{tekst}' jest palindromem.")
+                else:
+                    print(f"'{tekst}' nie jest palindromem.")
+            </code></pre><br><br>
+        </section>
+        <section><!--Anagram-->
+            <h1>Anagram</h1>
+            <pre class="lang-python"><code>
+                def czy_anagram(a, b):
+                    dl1 = len(a)
+                    dl2 = len(b)
+                    if dl1 != dl2:
+                        return False
+
+                    licz = [0] * 127
+                    for i in range(dl1):
+                        licz[ord(a[i])] += 1
+                    for i in range(dl1):
+                        licz[ord(b[i])] -= 1
+
+                    for i in range(127):
+                        if licz[i] != 0:
+                            return False
+                    return True
+
+                wyraz1 = input("Podaj pierwszy wyraz: ")
+                wyraz2 = input("Podaj drugi wyraz: ")
+                            
+                if czy_anagram(wyraz1, wyraz2):
+                    print("Podane wyrazy są anagramami.")
+                else:
+                    print("Podane wyrazy nie są anagramami.")
+            </code></pre><br><br>
+        </section>
+        <section><!--Szyfr kolumnowy-->
+            <h1>Szyfr kolumnowy</h1>
+            <pre class="lang-python"><code>
+                tekst = input("Podaj tekst: ")
+                dlugosc_tekstu = len(tekst)
+
+                klucz = int(input("Podaj klucz: "))
+                while klucz < 2 or klucz > (dlugosc_tekstu / 2):
+                    klucz_max = int(dlugosc_tekstu / 2)
+                    print(f"""Błąd! Klucz musi być większy lub równy 2 i 
+                        mniejszy lub równy {klucz_max}.""")
+                    klucz = int(input("Podaj klucz: "))
+
+                szyfr = ""
+
+                for i in range(klucz):
+                    for j in range(i, dlugosc_tekstu, klucz):
+                        szyfr += tekst[j]
+
+                print(szyfr)
+            </code></pre><br><br>
+        </section>
+        <section><!--Szyfr Cezara-->
+            <h1>Szyfr Cezara</h1>
+            <pre class="lang-python"><code>
+                tekst = input("Podaj tekst do zaszyfrowania: ")
+                klucz = int(input("Podaj klucz: "))
+
+                def szyfr_iter():
+                    alfabet = "abcdefghijklmnopqrstuvwxyz"
+                    dlugosc_tekstu = len(tekst)
+                    dlugosc_alfabetu = len(alfabet)
+                    szyfr = ""
+                    for i in range(dlugosc_tekstu):
+                        for j in range(dlugosc_alfabetu):
+
+                            if tekst[i].islower():
+                                alfabet = alfabet.lower()
+                            else:
+                                alfabet = alfabet.upper()
+
+                            if tekst[i] == alfabet[j]:
+                                szyfr += alfabet[(j + klucz) % dlugosc_alfabetu]
+                    print(szyfr)
+
+
+                def szyfr_ASCII():
+                    szyfr = ""
+                    for znak in tekst:
+                        ostatnia_litera = 'z' if znak.islower() else 'Z'
+                        kod = ord(znak) + klucz
+
+                        if kod > ord(ostatnia_litera):
+                            kod -= 26
+                        szyfr += chr(kod)
+                    print(szyfr)
+            </code></pre><br><br>
+        </section>
+        <section><!--Zliczanie wystąpień liter w napisie-->
+            <h1>Zliczanie wystąpień liter w napisie</h1>
+            <pre class="lang-python"><code>
+                napis = input("Podaj napis: ").upper()
+
+                liczniki = [0] * 26
+
+                for litera in napis:
+                    indeks = ord(litera) - ord('A')
+                    liczniki[indeks] += 1
+
+                kod_A = ord('A')
+                for i in range(len(liczniki)):
+                    if liczniki[i] > 0:
+                        print(f"{chr(kod_A + i)} - {liczniki[i]}")
             </code></pre><br><br>
         </section>
     </main>
