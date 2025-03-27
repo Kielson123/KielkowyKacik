@@ -38,12 +38,16 @@ html{
 }
 
 .formulas li{
-    margin-bottom: 15px;
+    margin-top: 20px;
 }
 
 span#mat{
     font-style: italic;
     color: #a9a9a9;
+}
+
+math{
+    font-size: larger;
 }
 
 body{
