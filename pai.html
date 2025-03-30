@@ -54,17 +54,11 @@
 
                 for(let sciana = 0; sciana < DLUGOSC; sciana++){
                     for(let j = 0; j < Math.floor(ilosc); j++){
-                        if(kierunek == 0){//góra
-                            y--
-                        }
-                        else if(kierunek == 1){//prawo
-                            x++
-                        }
-                        else if(kierunek == 2){//dół
-                            y++
-                        }
-                        else if(kierunek == 3){//lewo
-                            x--
+                        switch(kierunek){
+                            case 0: y--; break
+                            case 1: x++; break
+                            case 2: y++; break
+                            case 3: x--; break
                         }
                         tablica[y][x] = "#"
                     }
