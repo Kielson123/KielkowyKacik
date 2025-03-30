@@ -47,26 +47,26 @@
                     }
                 }
                 
-                let x = DLUGOSC / 2
                 let y = DLUGOSC / 2 - 1
+                let x = DLUGOSC / 2
                 let kierunek = 0
-                
                 let ilosc = 2
+
                 for(let sciana = 0; sciana < DLUGOSC; sciana++){
                     for(let j = 0; j < Math.floor(ilosc); j++){
                         if(kierunek == 0){//góra
-                            x--
-                        }
-                        else if(kierunek == 1){//prawo
-                            y++
-                        }
-                        else if(kierunek == 2){//dół
-                            x++
-                        }
-                        else if(kierunek == 3){//lewo
                             y--
                         }
-                        tablica[x][y] = "#"
+                        else if(kierunek == 1){//prawo
+                            x++
+                        }
+                        else if(kierunek == 2){//dół
+                            y++
+                        }
+                        else if(kierunek == 3){//lewo
+                            x--
+                        }
+                        tablica[y][x] = "#"
                     }
                     kierunek = (sciana + 1) % 4;
                     if(sciana < 2){
