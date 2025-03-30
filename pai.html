@@ -13,6 +13,77 @@
         <a id="unclicked" class="button mat" href="./mat.html">Matematyka</a>
     </aside>
     <main>
+        <section><!--Szlaczek 5 (Ślimak)-->
+            <h1>Szlaczek 5 (Ślimak)</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Szlaczek 5</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="5.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let segmenty = parseInt(prompt("Podaj liczbę segmentów: ", 1))
+
+                const DLUGOSC = segmenty * 4
+                const ILOSC_ZNAKOW = Math.pow(2 * segmenty + 1, 2)
+                            
+                let tablica = []
+                for(let i = 0; i < DLUGOSC; i++){
+                    tablica.push([])
+                    for(let j = 0; j < DLUGOSC; j++){
+                        tablica[i].push("&nbsp;")
+                    }
+                }
+                
+                let x = DLUGOSC / 2
+                let y = DLUGOSC / 2 - 1
+                let kierunek = 0
+                
+                let ilosc = 2
+                for(let sciana = 0; sciana < DLUGOSC; sciana++){
+                    for(let j = 0; j < Math.floor(ilosc); j++){
+                        if(kierunek == 0){//góra
+                            x--
+                        }
+                        else if(kierunek == 1){//prawo
+                            y++
+                        }
+                        else if(kierunek == 2){//dół
+                            x++
+                        }
+                        else if(kierunek == 3){//lewo
+                            y--
+                        }
+                        tablica[x][y] = "#"
+                    }
+                    kierunek = (sciana + 1) % 4;
+                    if(sciana < 2){
+                        ilosc += 0.5
+                    }
+                    else{
+                        ilosc++
+                    }
+                }
+                
+                for(let i = 0; i < DLUGOSC; i++){
+                    document.write(tablica[i].join(''))
+                    document.write('<br>')
+                }
+            </script>
+            <br><br>
+        </section>
         <section><!--Szlaczek 4 (Koło)-->
             <h1>Szlaczek 4 (Koło)</h1>
             <script type="text/plain" class="language-markup">
