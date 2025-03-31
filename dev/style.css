@@ -1,0 +1,102 @@
+html{
+    width: 100%;
+    height: 100%;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.button{
+    float: right;
+    background-color:rgb(55, 110, 211);
+    cursor:pointer;
+    padding: 8px 6px 6px 6px;
+    margin-bottom: 5px;
+    min-height: 25px;
+    min-width: 110px;
+    border-radius: 10px 0px 0px 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.button#clicked{
+    background-color:rgb(120, 175, 230);
+}
+
+.button:hover{
+    background-color:rgb(86, 131, 216);
+    transition: all 0.5s;
+}
+
+.formulas{
+    padding: 15px 0px 0px 50px;
+    font-size: large;
+}
+
+.formulas li{
+    margin-top: 20px;
+}
+
+span#mat{
+    font-style: italic;
+    color: #a9a9a9;
+}
+
+math{
+    font-size: larger;
+}
+
+body{
+    display: flex;
+    background-color: rgb(20, 20, 30);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    flex-direction: row;
+    padding: 15px;
+}
+
+aside{
+    display: flex;
+    padding: 10px 3px 10px 0px;
+    flex-direction: column;
+    max-width: 150px;
+}
+
+main{
+    height: max-content;
+    padding: 35px;
+    margin-top: 10px;
+    width: 94.5%;
+    background-color:rgb(40, 40, 70);
+    color: aliceblue;
+}
+
+section{
+    padding: 15px 0px 0px 37.5px;
+}
+
+@media screen and (max-width: 850px){
+    body{
+        flex-direction: column;
+        padding: 0px;
+    }
+    .button{
+        border-radius: 10px 10px 0px 0px;
+        margin: 0px 6px 6px 0px;
+    }
+    aside{
+        flex-direction: row;
+        padding: 10px 3px 0px 3px;
+    }
+    main{
+        margin: 0px;
+        padding: 10px 20px 10px 0px;
+        width: 100%;;
+    }
+    section{
+        padding: 15px 0px 0px 15px;
+    }
+}

@@ -1,0 +1,418 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiełkowy Kącik</title>
+    <link rel="stylesheet" href="prism/prism.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside id="side_buttons">
+        <a id="unclicked" class="button inf" href="./inf.html">Informatyka</a>
+        <a id="clicked" class="button pai" href="./pai.html">PAI</a>
+        <a id="unclicked" class="button mat" href="./mat.html">Matematyka</a>
+    </aside>
+    <main>
+        <section><!--Szlaczek 5 (Ślimak)-->
+            <h1>Szlaczek 5 (Ślimak)</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Szlaczek 5</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="5.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let segmenty = parseInt(prompt("Podaj liczbę segmentów: ", 1))
+
+                const DLUGOSC = segmenty * 4
+                const ILOSC_ZNAKOW = Math.pow(2 * segmenty + 1, 2)
+                            
+                let tablica = []
+                for(let i = 0; i < DLUGOSC; i++){
+                    tablica.push([])
+                    for(let j = 0; j < DLUGOSC; j++){
+                        tablica[i].push("&nbsp;")
+                    }
+                }
+                
+                let y = DLUGOSC / 2
+                let x = DLUGOSC / 2 - 1
+                let kierunek = 0
+                let ilosc = 2
+
+                for(let sciana = 0; sciana < DLUGOSC; sciana++){
+                    for(let j = 0; j < Math.floor(ilosc); j++){
+                        switch(kierunek){
+                            case 0: y--; break
+                            case 1: x++; break
+                            case 2: y++; break
+                            case 3: x--; break
+                        }
+                        tablica[y][x] = "#"
+                    }
+                    kierunek = (sciana + 1) % 4;
+                    if(sciana < 2){
+                        ilosc += 0.5
+                    }
+                    else{
+                        ilosc++
+                    }
+                }
+                
+                for(let i = 0; i < DLUGOSC; i++){
+                    document.write(tablica[i].join(''))
+                    document.write('<br>')
+                }
+            </script>
+            <br><br>
+        </section>
+        <section><!--Szlaczek 4 (Koło)-->
+            <h1>Szlaczek 4 (Koło)</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Szlaczek 4</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="4.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let r = parseInt(prompt("Podaj promień: ", 8))
+                let czy_wypelniony = confirm("Ma być koło(Ok), czy okrąg(Anuluj)?")
+                let znak = "#"
+                            
+                let srodek = r * 2 - 1
+                let dlugosc = 2 * r + 1
+                            
+                document.write(`<p>`)
+                for (let w = -r; w <= r; w++) {
+                    for (let k = -r; k <= r; k++) {
+                        let odleglosc = Math.sqrt((w * w) + (k * k));
+                        if (czy_wypelniony) {
+                            if (odleglosc <= r) {
+                                document.write(znak);
+                            } else {
+                                document.write(`&nbsp`);
+                            }
+                        } else {
+                            if (odleglosc >= r - 0.5 && odleglosc <= r + 0.5) {
+                                document.write(znak);
+                            } else {
+                                document.write(`&nbsp`);
+                            }
+                        }
+                    }
+                    document.write(`<br>`);
+                }
+                document.write(`</p>`)
+            </script>
+            <br><br>
+        </section>
+        <section><!--Szlaczek 3 (Romb)-->
+            <h1>Szlaczek 3 (Romb)</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Szlaczek 3</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="3.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let n = parseInt(prompt("Podaj długość boku: ", 5))
+                let znak = "#"
+
+                let szerokość = n + (n - 1)
+                let srodek = n - 1
+
+                document.write(`<p>`)
+                for(let w = 0; w < szerokość - n; w++){
+                    for(let k = 0; k < szerokość; k++){
+                        if (w == srodek - k || w == k - srodek){
+                            document.write(znak)
+                        }
+                        else{
+                            document.write(`&nbsp`)
+                        }
+                    }
+                    document.write(`<br>`)
+                }
+                for(let w = szerokość - n; w >= 0; w--){
+                    for(let k = szerokość - 1; k >= 0; k--){
+                        if (w == srodek - k || w == k - srodek){
+                            document.write(znak)
+                        }
+                        else{
+                            document.write(`&nbsp`)
+                        }
+                    }
+                    document.write(`<br>`)
+                }
+                document.write(`</p>`)
+            </script>
+            <br><br>
+        </section>
+        <section><!--Szlaczek 2 (Choinka)-->
+            <h1>Szlaczek 2 (Choinka)</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Szlaczek 2</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="2.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let znak = prompt("Podaj znak: ", "*")
+                let dlugosc = parseInt(prompt("Podaj wielkość: ", "5"))
+
+                let wysokosc = dlugosc / 2
+                if(dlugosc % 2 != 0){
+                    Math.floor(wysokosc) + 1
+                }
+
+                let srodek = Math.floor(dlugosc / 2)
+
+                document.write(`<p>`)
+                for(let w = 0; w < wysokosc; w++) {
+                    for(let k = 0; k < dlugosc; k++) {
+                        if(dlugosc % 2 == 0 && k == 0){
+                            continue
+                        }
+                        if(k > srodek + w || k < srodek - w) {
+                            document.write("&nbsp;")
+                        }
+                        else{
+                            document.write(znak)
+                        }
+                    }
+                    document.write(`<br>`)
+                }
+                document.write(`</p>`)
+            </script>
+            <br><br>
+        </section>
+        <section><!--Szlaczek 1 (^^^)-->
+            <h1>Szlaczek 1 (^^^)</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Szlaczek 1</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="1.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let znak = prompt("Podaj znak: ", "#")
+                let n = parseInt(prompt("Podaj wielkość: ", "5"))
+                let N = parseInt(prompt("Podaj ilość powtórzeń: ", "3"))
+                let dlugosc_powtorzenia = n + (n - 2)
+
+
+                document.write(`<p>`)
+                for(let w = 0; w < n; w++) {
+                    for(let i = 0; i < N; i++) {
+                        for(let k = 1; k <= dlugosc_powtorzenia; k++) {
+                            if(k == n + w || k == n - w){
+                                document.write(znak)
+                            }
+                            else{
+                                document.write("&nbsp")
+                            }
+                        }
+                    }
+                    document.write(`<br>`)
+                }
+                document.write(`</p>`)
+            </script>
+            <br><br>
+        </section>
+        <section><!--Szlaczek 0-->
+            <h1>Szlaczek 0</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Szlaczek 0</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="0.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let n = parseInt(prompt("Podaj długość: ", 4))
+                let N = parseInt(prompt("Podaj ilość: ", 3))
+                let znak = prompt("Podaj znak: ", "#")
+
+                let dlugosc_powtorzenia = (n-1) * 2
+
+                document.write(`<p>`)
+                for (let w = 0; w < n; w++){
+                    for (let i = 0; i < N; i++){
+                        for (let k = 0; k < dlugosc_powtorzenia; k++){
+                            if (k == n - 2){
+                                document.write(znak)
+                            }
+                            else if (k == dlugosc_powtorzenia - 1){
+                                document.write(znak)
+                            }
+                            else if (w == 0 && k < n - 2){
+                                document.write(znak)
+                            }
+                            else if (w == n - 1 && k < dlugosc_powtorzenia - 1 && k > n - 2){
+                                document.write(znak)
+                            }
+                            else {
+                                document.write("&nbsp")
+                            }
+                        }
+                    }
+                    document.write("<br>")
+                }
+                document.write(`</p>`)
+            </script>
+            <br><br>
+        </section>
+        <section><!--Kwadrat-->
+            <h1>Kwadrat</h1>
+            <script type="text/plain" class="language-markup">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Kwadrat</title>
+                    <style>
+                        p{
+                            font-family: 'Courier New', Courier, monospace;
+                            letter-spacing: 9px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <script src="kwadrat.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js">
+                let ile = parseInt(prompt("Z ilu znaków chcesz kwadrat? ", 20))
+                let znak = prompt("Z jakiego znaku chcesz kwadrat? ", "#")[0]
+                let czy_pusty = confirm("Pełen czy pusty?")
+                document.write(`<p id="kwad">`)
+                for (let wiersz = 0; wiersz < ile; wiersz++){
+                    for (let kolumna = 0; kolumna < ile; kolumna++){
+                        if (!czy_pusty){
+                            if (wiersz == 0 || kolumna == 0 || wiersz == ile - 1 || kolumna == ile - 1){
+                                document.write(`<span style = "color: rgb(
+                                    ${parseInt(Math.random()*250)}, 
+                                    ${parseInt(Math.random()*250)}, 
+                                    ${parseInt(Math.random()*250)}
+                                    )">${znak[0]}</span>`)
+                            }
+                            else{
+                                document.write("&nbsp")
+                            }
+                        }
+                        else{
+                            document.write(`<span style = "color: rgb(
+                                ${parseInt(Math.random()*250)}, 
+                                ${parseInt(Math.random()*250)}, 
+                                ${parseInt(Math.random()*250)}
+                                )">${znak[0]}</span>`)
+                        }
+                    }
+                    document.write(`<br>`)
+                }
+                document.write(`</p>`)
+            </script>
+            <br><br>
+        </section>
+        <section><!--Temperatura-->
+            <h1>Temperatura</h1>
+            <script type="text/plain" class="language-html">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>temperatura</title>
+                </head>
+                <body>
+                    <script>
+                        var temp = parseFloat(prompt(`Podaj temeraturę pacjenta: `))
+                        document.write(`<p>`)
+                        if (temp <= 35) document.write(`style="color: blue" >Zimny trup.`)
+                        else if (temp < 36.6) document.write(`style="color: cadetblue" >Walnij setę.`)
+                        else if (temp == 36.6) document.write(`style="color: green" >Jest ok.`)
+                        else if (temp <= 37.5) document.write(`style="color: yellow" >Stan podgorączkowy.`)
+                        else if (temp < 39) document.write(`style="color: orange" >Zrób zimny kompres.`)
+                        else if (temp <= 41) document.write(`style="color: red" >Weź pigułkę.`)
+                        else document.write(`style="color: black" >Mózg zlasowany.`)
+                        document.write(`</p>`)
+                    &lt;/script>
+                </body>
+                </html>
+            </script><br><br>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="prism/prism.js"></script>
+</body>
+</html>
