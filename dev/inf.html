@@ -13,18 +13,38 @@
         <a id="unclicked" class="button mat" href="./mat.html">Matematyka</a>
     </aside>
     <main>
+        <section><!--Sortowanie przez wybór-->
+            <h1>Sortowanie przez wybór</h1>
+            <pre class="lang-python"><code>
+                import random
+
+                n = int(input("Podaj wielkość zbioru: "))
+                            
+                A = []
+                for i in range(n):
+                    A.append(random.randint(-10, 10))
+                print(A)
+                            
+                for i in range(0, n - 1):
+                    m = i
+                    for j in range(i + 1, n):
+                        if A[j] < A[m]:
+                            m = j
+                    A[i], A[m] = A[m], A[i]
+                            
+                print(A)
+            </code></pre><br><br>
+        </section>
         <section><!--Sortowanie bąbelkowe-->
             <h1>Sortowanie bąbelkowe</h1>
             <pre class="lang-python"><code>
                 import random
 
                 n = int(input("Podaj wielkość zbioru: "))
-                wart_min = int(input("Podaj najmniejszą liczbę: "))
-                wart_max = int(input("Podaj największą liczbę: "))
-
+                            
                 A = []
                 for i in range(n):
-                    A.append(random.randint(wart_min, wart_max))
+                    A.append(random.randint(-10, 10))
                 print(A)
 
                 for i in range(1, n):
