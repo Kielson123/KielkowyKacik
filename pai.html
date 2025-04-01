@@ -34,46 +34,33 @@
                 </html>
             </script>
             <script type="text/plain" class="language-js">
-                let segmenty = parseInt(prompt("Podaj liczbę segmentów: ", 1))
-
-                const DLUGOSC = segmenty * 4
-                const ILOSC_ZNAKOW = Math.pow(2 * segmenty + 1, 2)
+                let segmenty = parseInt(prompt("Podaj liczbę segmentów:", 2))
+                let dlugosc = segmenty * 4
+                let srodek = dlugosc / 2
                             
-                let tablica = []
-                for(let i = 0; i < DLUGOSC; i++){
-                    tablica.push([])
-                    for(let j = 0; j < DLUGOSC; j++){
-                        tablica[i].push("&nbsp;")
-                    }
-                }
-                
-                let y = DLUGOSC / 2 - 1
-                let x = DLUGOSC / 2
-                let kierunek = 0
-                let ilosc = 2
-
-                for(let sciana = 0; sciana < DLUGOSC; sciana++){
-                    for(let j = 0; j < Math.floor(ilosc); j++){
-                        switch(kierunek){
-                            case 0: y--; break
-                            case 1: x++; break
-                            case 2: y++; break
-                            case 3: x--; break
+                for(let wiersz = srodek - 1; wiersz >= 0; wiersz--){
+                    for(let kolumna = 0; kolumna < dlugosc; kolumna++){
+                        if(((wiersz % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz) || kolumna % 2 != 0) && 
+                            !(kolumna % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz && wiersz % 2 == 0)){
+                            document.write("#")
                         }
-                        tablica[y][x] = "#"
+                        else{
+                            document.write(`&nbsp`)
+                        }
                     }
-                    kierunek = (sciana + 1) % 4;
-                    if(sciana < 2){
-                        ilosc += 0.5
-                    }
-                    else{
-                        ilosc++
-                    }
+                    document.write(`<br>`)
                 }
-                
-                for(let i = 0; i < DLUGOSC; i++){
-                    document.write(tablica[i].join(''))
-                    document.write('<br>')
+                for(let wiersz = 0; wiersz < srodek; wiersz++){
+                    for(let kolumna = 0; kolumna < dlugosc; kolumna++){
+                        if(((wiersz % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz - 2) || kolumna % 2 != 0) && 
+                            !(kolumna % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz - 2 && wiersz % 2 == 0)){
+                            document.write("#")
+                        }
+                        else{
+                            document.write(`&nbsp`)
+                        }
+                    }
+                    document.write(`<br>`)
                 }
             </script>
             <br><br>
