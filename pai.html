@@ -34,15 +34,69 @@
                 </html>
             </script>
             <script type="text/plain" class="language-js">
-                let segmenty = parseInt(prompt("Podaj liczbę segmentów:", 2))
-                let dlugosc = segmenty * 4
+                let segmenty = parseInt(prompt("Podaj liczbę segmentów: ", 1))
+
+                const DLUGOSC = segmenty * 4
+                const ILOSC_ZNAKOW = Math.pow(2 * segmenty + 1, 2)
+                            
+                let tablica = []
+                for(let i = 0; i < DLUGOSC; i++){
+                    tablica.push([])
+                    for(let j = 0; j < DLUGOSC; j++){
+                        tablica[i].push("&nbsp;")
+                    }
+                }
+                
+                let y = DLUGOSC / 2
+                let x = DLUGOSC / 2 - 1
+                let kierunek = 0
+                let ilosc = 2
+
+                for(let sciana = 0; sciana < DLUGOSC; sciana++){
+                    for(let j = 0; j < Math.floor(ilosc); j++){
+                        switch(kierunek){
+                            case 0: y--; break
+                            case 1: x++; break
+                            case 2: y++; break
+                            case 3: x--; break
+                        }
+                        tablica[y][x] = "#"
+                    }
+                    kierunek = (sciana + 1) % 4;
+                    if(sciana < 2){
+                        ilosc += 0.5
+                    }
+                    else{
+                        ilosc++
+                    }
+                }
+                
+                for(let i = 0; i < DLUGOSC; i++){
+                    document.write(tablica[i].join(''))
+                    document.write('<br>')
+                }
+            </script>
+            <p>lub</p>
+            <script type="text/plain" class="language-js">
+                let s = parseInt(prompt("Podaj liczbę segmentów:", 3))
+                let znak = "#"
+                            
+                let dlugosc = s * 4
                 let srodek = dlugosc / 2
                             
-                for(let wiersz = srodek - 1; wiersz >= 0; wiersz--){
-                    for(let kolumna = 0; kolumna < dlugosc; kolumna++){
-                        if(((wiersz % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz) || kolumna % 2 != 0) && 
-                            !(kolumna % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz && wiersz % 2 == 0)){
-                            document.write("#")
+                document.write(`<p>`)
+                //gora
+                for(let w = srodek - 1; w >= 0; w--){
+                    for(let k = 0; k < dlugosc; k++){
+                    
+                        let czy_choinka = k < srodek + w && k > srodek - w
+                        let czy_pionowe_boki = (k - 1) % 2 == 0
+                        
+                        if(czy_pionowe_boki && czy_choinka && w % 2 == 0){
+                            document.write(`&nbsp`)
+                        }
+                        else if((czy_choinka && w % 2 != 0) || czy_pionowe_boki){
+                            document.write(znak)
                         }
                         else{
                             document.write(`&nbsp`)
@@ -50,11 +104,18 @@
                     }
                     document.write(`<br>`)
                 }
-                for(let wiersz = 0; wiersz < srodek; wiersz++){
-                    for(let kolumna = 0; kolumna < dlugosc; kolumna++){
-                        if(((wiersz % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz - 2) || kolumna % 2 != 0) && 
-                            !(kolumna % 2 != 0 && kolumna < srodek + wiersz && kolumna > srodek - wiersz - 2 && wiersz % 2 == 0)){
-                            document.write("#")
+                //dol
+                for(let w = 0; w < srodek; w++){
+                    for(let k = 0; k < dlugosc; k++){
+                    
+                        let czy_choinka = k < srodek + w && k > srodek - w - 2
+                        let czy_pionowe_boki = (k - 1) % 2 == 0
+                        
+                        if(czy_pionowe_boki && czy_choinka && w % 2 == 0){
+                            document.write(`&nbsp`)
+                        }
+                        else if((czy_choinka && w % 2 != 0) || czy_pionowe_boki){
+                            document.write(znak)
                         }
                         else{
                             document.write(`&nbsp`)
@@ -62,6 +123,7 @@
                     }
                     document.write(`<br>`)
                 }
+                document.write(`</p>`)
             </script>
             <br><br>
         </section>
