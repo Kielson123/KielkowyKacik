@@ -16,7 +16,7 @@ html{
     padding: 8px 6px 6px 6px;
     margin-bottom: 5px;
     min-height: 25px;
-    min-width: 110px;
+    min-width: 125px;
     border-radius: 10px 0px 0px 10px;
     color: black;
     text-decoration: none;
@@ -39,6 +39,44 @@ html{
 
 .formulas li{
     margin-top: 20px;
+}
+
+.collapsible:after {
+    content: '▼';
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-right: 35px;
+    transform: translateY(3px);
+}
+  
+.active:after {
+    content: "▲";
+}
+
+h1 ~ article pre,
+h1 ~ article script,
+h1 ~ ul{
+    min-height: 0px;
+    max-height: 0px;
+    overflow:hidden;
+    transition: max-height 0.2s ease-out;
+    scrollbar-width: 0px;
+}
+
+/*hide scrollbar when collapsed*/
+h1 ~ article pre::-webkit-scrollbar,
+h1 ~ article script::-webkit-scrollbar,
+h1 ~ ul::-webkit-scrollbar{
+    display: none;
+}
+  
+  
+h1 ~ article pre,
+h1 ~ article script,
+h1 ~ ul{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 span#mat{
@@ -85,11 +123,14 @@ section{
     }
     .button{
         border-radius: 10px 10px 0px 0px;
-        margin: 0px 6px 6px 0px;
+        margin: 0px 3px 3px 3px;
     }
     aside{
         flex-direction: row;
-        padding: 10px 3px 0px 3px;
+        flex-wrap: wrap-reverse;
+        max-width: 100vh;
+        padding: 10px 2px 0px 2px;
+        justify-content:start;
     }
     main{
         margin: 0px;

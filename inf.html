@@ -14,8 +14,8 @@
     </aside>
     <main>
         <section><!--Sortowanie przez wstawianie-->
-            <h1>Sortowanie przez wstawianie</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Sortowanie przez wstawianie</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 import random
 
                 n = int(input("Podaj wielkość zbioru: "))
@@ -34,11 +34,11 @@
                     A[j+1] = pom
                             
                 print(A)
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Sortowanie przez wybór-->
-            <h1>Sortowanie przez wybór</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Sortowanie przez wybór</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 import random
 
                 n = int(input("Podaj wielkość zbioru: "))
@@ -56,11 +56,11 @@
                     A[i], A[m] = A[m], A[i]
                             
                 print(A)
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Sortowanie bąbelkowe-->
-            <h1>Sortowanie bąbelkowe</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Sortowanie bąbelkowe</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 import random
 
                 n = int(input("Podaj wielkość zbioru: "))
@@ -75,11 +75,11 @@
                         if A[j] > A[j + 1]:
                             A[j], A[j + 1] = A[j + 1], A[j]
                 print(A)
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Przeszukiwanie binarne-->
-            <h1>Przeszukiwanie binarne</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Przeszukiwanie binarne</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 import random
 
                 n = int(input("Podaj wielkość zbioru: "))
@@ -104,11 +104,11 @@
                     print(f"Znaleziono {x} o indeksie {lewy}")
                 else:
                     print(f"Nie znaleziono {x}")
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Przeszukiwanie liniowe-->
-            <h1>Przeszukiwanie liniowe</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Przeszukiwanie liniowe</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 import random
 
                 n = int(input("Podaj wielkość zbioru: "))
@@ -126,11 +126,11 @@
                         break
 
                 print(komunikat)
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Palindrom-->
-            <h1>Palindrom</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Palindrom</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 def czy_palindrom(tekst):
                     tekst = tekst.replace(" ", "").lower()
                     dlugosc = len(tekst)
@@ -144,11 +144,11 @@
                     print(f"'{tekst}' jest palindromem.")
                 else:
                     print(f"'{tekst}' nie jest palindromem.")
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Anagram-->
-            <h1>Anagram</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Anagram</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 def czy_anagram(a, b):
                     dl1 = len(a)
                     dl2 = len(b)
@@ -173,11 +173,11 @@
                     print("Podane wyrazy są anagramami.")
                 else:
                     print("Podane wyrazy nie są anagramami.")
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Szyfr kolumnowy-->
-            <h1>Szyfr kolumnowy</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Szyfr kolumnowy</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 tekst = input("Podaj tekst: ")
                 dlugosc_tekstu = len(tekst)
 
@@ -195,11 +195,11 @@
                         szyfr += tekst[j]
 
                 print(szyfr)
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Szyfr Cezara-->
-            <h1>Szyfr Cezara</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Szyfr Cezara</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 tekst = input("Podaj tekst do zaszyfrowania: ")
                 klucz = int(input("Podaj klucz: "))
 
@@ -231,11 +231,11 @@
                             kod -= 26
                         szyfr += chr(kod)
                     print(szyfr)
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
         <section><!--Zliczanie wystąpień liter w napisie-->
-            <h1>Zliczanie wystąpień liter w napisie</h1>
-            <pre class="lang-python"><code>
+            <h1 class="collapsible active">Zliczanie wystąpień liter w napisie</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
                 napis = input("Podaj napis: ").upper()
 
                 liczniki = [0] * 26
@@ -248,7 +248,7 @@
                 for i in range(len(liczniki)):
                     if liczniki[i] > 0:
                         print(f"{chr(kod_A + i)} - {liczniki[i]}")
-            </code></pre><br><br>
+            </code></pre></article><br><br>
         </section>
     </main>
     <script src="script.js"></script>

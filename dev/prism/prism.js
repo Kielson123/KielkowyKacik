@@ -3089,6 +3089,7 @@ Prism.languages.py = Prism.languages.python;
 
 			// copy class name
 			pre.className = code.className = element.className;
+			pre.style.maxHeight = "none"
 
 			// copy all "data-" attributes
 			var dataset = element.dataset;
