@@ -13,6 +13,49 @@
         <a id="unclicked" class="button mat" href="./mat.html">Matematyka</a>
     </aside>
     <main>
+        <section><!--Sortowanie przez zliczanie-->
+            <h1 class="collapsible active">Sortowanie przez zliczanie</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
+                import random
+
+                n = int(input("Podaj wielkość zbioru: "))
+
+                Wej = []
+                for i in range(n):
+                    Wej.append(random.randint(0, 10))
+                print(Wej)
+
+                min = Wej[0]
+                max = Wej[0]
+                for i in range(1, n):
+                    if Wej[i] < min:
+                        min = Wej[i]
+                    if Wej[i] > max:
+                        max = Wej[i]
+
+                k = max - min + 1
+                pom = [0] * k
+
+                for i in range(n):
+                    pom[Wej[i] - min] += 1
+
+                for i in range(1, k):
+                    pom[i] += pom[i - 1]
+
+                Wyj = [0] * n
+                for i in range(n - 1, -1, -1):
+                    element = Wej[i]
+                    indeksWTablicyWynikowej = pom[element - min] - 1
+                    pom[element - min] -= 1
+                    Wyj[indeksWTablicyWynikowej] = element
+
+                print(Wyj)
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n + k)</b></p><br>
+            <p>&nbsp;&nbsp;&nbsp;n - liczba elementów w tablicy wejściowej (Wej)</p>
+            <p>&nbsp;&nbsp;&nbsp;k - zakres wartości w tablicy, czyli <i>max - min + 1</i></p>
+            </article><br><br>
+        </section>
         <section><!--Sortowanie przez wstawianie-->
             <h1 class="collapsible active">Sortowanie przez wstawianie</h1>
             <article><pre class="lang-python" style="max-height: none;"><code>
@@ -34,7 +77,8 @@
                     A[j+1] = pom
                             
                 print(A)
-            </code></pre></article><br><br>
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n<sup>2</sup>)</b></p></article><br><br>
         </section>
         <section><!--Sortowanie przez wybór-->
             <h1 class="collapsible active">Sortowanie przez wybór</h1>
@@ -56,7 +100,8 @@
                     A[i], A[m] = A[m], A[i]
                             
                 print(A)
-            </code></pre></article><br><br>
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n<sup>2</sup>)</b></p></article><br><br>
         </section>
         <section><!--Sortowanie bąbelkowe-->
             <h1 class="collapsible active">Sortowanie bąbelkowe</h1>
@@ -75,7 +120,8 @@
                         if A[j] > A[j + 1]:
                             A[j], A[j + 1] = A[j + 1], A[j]
                 print(A)
-            </code></pre></article><br><br>
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n<sup>2</sup>)</b></p></article><br><br>
         </section>
         <section><!--Przeszukiwanie binarne-->
             <h1 class="collapsible active">Przeszukiwanie binarne</h1>
@@ -104,7 +150,8 @@
                     print(f"Znaleziono {x} o indeksie {lewy}")
                 else:
                     print(f"Nie znaleziono {x}")
-            </code></pre></article><br><br>
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(log n)</b></p></article><br><br>
         </section>
         <section><!--Przeszukiwanie liniowe-->
             <h1 class="collapsible active">Przeszukiwanie liniowe</h1>
@@ -126,7 +173,8 @@
                         break
 
                 print(komunikat)
-            </code></pre></article><br><br>
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n)</b></p></article><br><br>
         </section>
         <section><!--Palindrom-->
             <h1 class="collapsible active">Palindrom</h1>
