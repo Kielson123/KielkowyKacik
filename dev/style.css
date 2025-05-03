@@ -121,10 +121,13 @@ section{
     }
     main{
         margin: 0px;
-        padding: 10px 20px 10px 0px;
-        width: 100%;;
+        padding: 0px;
+        width: 100%;
     }
     section{
-        padding: 15px 0px 0px 15px;
+        padding: 15px 0px 0px 0px;
+    }
+    h1, p{
+        padding-left: 10px;
     }
 }
