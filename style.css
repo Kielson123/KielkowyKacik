@@ -41,19 +41,6 @@ html{
     margin-top: 20px;
 }
 
-.collapsible:after {
-    content: '▼';
-    font-size: 13px;
-    color: white;
-    float: right;
-    margin-right: 35px;
-    transform: translateY(3px);
-}
-  
-.active:after {
-    content: "▲";
-}
-
 h1 ~ article pre,
 h1 ~ article script,
 h1 ~ ul{
