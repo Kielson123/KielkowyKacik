@@ -13,6 +13,69 @@
         <a id="unclicked" class="button mat" href="./mat.html">Matematyka</a>
     </aside>
     <main>
+        <section><!--Sortowanie przez scalanie-->
+            <h1 class="collapsible active">Sortowanie przez scalanie</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
+                import random
+
+                def sortowanie_scalanie(tablica, pocz, kon):
+                    if pocz < kon:
+                        polowa = (pocz + kon) // 2
+                        sortowanie_scalanie(tablica, pocz, polowa)
+                        sortowanie_scalanie(tablica, polowa + 1, kon)
+                        scal(tablica, pocz, polowa, kon)
+
+                def scal(tablica, pocz, polowa, kon):
+                    n1 = polowa - pocz + 1
+                    n2 = kon - polowa
+
+                    L = [0] * n1
+                    for i in range(n1):
+                        L[i] = tablica[pocz + i]
+
+                    R = [0] * n2
+                    for j in range(n2):
+                        R[j] =  tablica[polowa + j + 1]
+
+                    i = 0
+                    j = 0
+                    k = pocz
+
+                    while i < n1 and j < n2:
+                        if L[i] <= R[j]:
+                            tablica[k] = L[i]
+                            i += 1
+                        else:
+                            tablica[k] = R[j]
+                            j += 1
+                        k += 1
+
+                    while i < n1:
+                        tablica[k] = L[i]
+                        i += 1
+                        k += 1
+
+                    while j < n2:
+                        tablica[k] = R[j]
+                        j += 1
+                        k += 1
+
+
+
+                n = int(input("Podaj wielkość zbioru: "))
+
+                A = []
+                for i in range(n):
+                    A.append(random.randint(0, 10))
+                print(A)
+
+                sortowanie_scalanie(A, 0, len(A) - 1)
+                print(A)
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n ⋅ log<sub>2</sub>n)</b></p><br>
+            <p>&nbsp;&nbsp;&nbsp;n - liczba elementów w tablicy</p>
+            </article><br><br>
+        </section>
         <section><!--Sortowanie przez zliczanie-->
             <h1 class="collapsible active">Sortowanie przez zliczanie</h1>
             <article><pre class="lang-python" style="max-height: none;"><code>
