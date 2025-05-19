@@ -68,6 +68,141 @@
                 }
             </script></article><br><br>
         </section>
+        <section><!--Wyrażenie 8 (Sigma)-->
+            <h1 class="collapsible active">Wyrażenie 8 (Sigma)</h1>
+            <article><script type="text/plain" class="language-markup" style="max-height: none;">
+                <html lang="pl">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Document</title>
+                    <link rel="stylesheet" href="style.css">
+                </head>
+                <body>
+                    <img src="wyr.png" alt="Wyrażenie">
+                    <ul>
+                        <li>&micro;, b -  algebraicznie poprawne, wprowadzone przez użytkownika z klawiatury</li>
+                        <li>&alpha; - wprowadzona przez użytkownika w stopniach (zakres: 50-60°)</li>
+                        <li>&pi; - stała matematyczna (Pi)</li>
+                        <li>c<sub>x</sub> - element tablicy z losowymi liczbami ze zbioru liczb 
+                            szesnastkowych (A12, E43, BBC, D01, A0C, BAC) zamienionymi na DEC</li>
+                    </ul>
+                    <input type="button" value="Oblicz wyrażenie" onclick="oblicz()">
+                    <script src="script.js">&lt;/script>
+                    <script src="mylib.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-css" style="max-height: none;">
+                table{
+                    background-color: rgb(201, 238, 250);
+                }
+                
+                td, th{
+                    border: 2px solid;
+                    width: 50%;
+                }
+                
+                body{
+                    background-color: lightgoldenrodyellow;
+                    font-size: larger;
+                }
+                
+                input{
+                    background-color: rgb(73, 140, 212);
+                    color: white;
+                    width: 300px;
+                    height: 60px;
+                    border-radius: 30px;
+                    font-size: larger;
+                    transition: 0.5s width;
+                }
+                
+                input:hover{
+                    background-color: rgb(143, 197, 255);
+                    cursor: pointer;
+                    width: 315px;
+                }
+            </script>
+            <script type="text/plain" class="language-js" style="max-height: none;">
+                function oblicz(){
+                    let alfa
+                    let msg = "Podaj 'alfa' z zakresu 50-60 stopni"
+                    do{
+                        alfa = inputNum(msg, 50)
+                        if(alfa < 50 && alfa > 60) msg = "'alfa' powinna być z zakresu 50-60 stopni. Podaj ponownie"
+                        if(alfa === false) return false
+                    }while(alfa < 50 && alfa > 60)
+                    
+                    
+                    let b, mikro, dol
+                    do{
+                        msg = "Podaj 'b' dowolne"
+                        b = inputNum(msg)
+                        if(b === false) return false
+                
+                        msg = "Podaj 'mikro' dowolne"
+                        mikro = inputNum(msg)
+                        if(mikro === false) return false
+                    
+                        dol = 0.2 + mikro + 3.78*(Math.PI - b)
+                
+                        if(dol == 0) msg = "Wartości 'b' i 'mikro' nie spełniają warunku. Podaj jeszcze raz"
+                    }while(dol == 0)
+                    
+                    let sigma = 0
+                    let liczby_hex = [0xA12, 0xE43, 0xBBC, 0xD01, 0xA0C, 0xBAC]
+                    let liczby = []
+                    for(let x=1; x<=25; x++){
+                        let losowana = liczby_hex[Math.floor(Math.random() * 6)]
+                        liczby.push(losowana)
+                        sigma += losowana + Math.sin(alfa*Math.PI/180)
+                    }
+                
+                    let suma = 3.4 + sigma
+                    let gora = suma**(1/11) + 1/Math.tan(alfa*Math.PI/180)
+                    let wynik = gora / dol
+                
+                    document.writeln(`
+                    <link rel="stylesheet" href="style.css">
+                    <img src="./wyr.png" alt="Wyrażenie"><br><br><br>
+                    <table><tbody>
+                        <tr>
+                            <th colspan="2">Parametry</th>
+                        </tr>
+                        <tr>
+                            <td>&micro;</td>
+                            <td>${mikro}</td>
+                        </tr>
+                        <tr>
+                            <td>b</td>
+                            <td>${b}</td>
+                        </tr>
+                        <tr>
+                            <td>&alpha;</td>
+                            <td>${alfa}</td>
+                        </tr>
+                        <tr>
+                            <td>c<sub>x</sub></td>
+                            <td>${liczby.join("<br>")}</td>
+                        </tr>
+                        <tr>
+                            <td>suma pod pierwiastkiem</td>
+                            <td>${suma.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                            <td>wynik częściowy</td>
+                            <td>${dol.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                            <td><b>wynik globalny</b></td>
+                            <td><b>${wynik.toFixed(2)}</br></td>
+                        </tr>
+                    </tbody></table>
+                    `)
+                    
+                }
+            </script></article><br><br>
+        </section>
         <section><!--Wyrażenie-->
             <h1 class="collapsible active">Wyrażenie</h1>
             <article><script type="text/plain" class="language-markup" style="max-height: none;">
