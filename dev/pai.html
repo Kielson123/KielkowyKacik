@@ -129,9 +129,9 @@
                     let msg = "Podaj 'alfa' z zakresu 50-60 stopni"
                     do{
                         alfa = inputNum(msg, 50)
-                        if(alfa < 50 && alfa > 60) msg = "'alfa' powinna być z zakresu 50-60 stopni. Podaj ponownie"
+                        if(alfa < 50 || alfa > 60) msg = "'alfa' powinna być z zakresu 50-60 stopni. Podaj ponownie"
                         if(alfa === false) return false
-                    }while(alfa < 50 && alfa > 60)
+                    }while(alfa < 50 || alfa > 60)
                     
                     
                     let b, mikro, dol
