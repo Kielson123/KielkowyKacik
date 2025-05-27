@@ -13,6 +13,82 @@
         <a id="unclicked" class="button mat" href="./mat.html">Matematyka</a>
     </aside>
     <main>
+        <section><!--Sortowanie kubełkowe-->
+            <h1 class="collapsible active">Sortowanie kubełkowe</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
+                import random
+
+                n = int(input("Podaj wielkość zbioru: "))
+
+                A = []
+                for i in range(n):
+                    A.append(random.randint(0, 10))
+                print(A)
+
+                xmin = A[0]
+                xmax = A[0]
+                for i in range(1, n):
+                    if A[i] < xmin:
+                        xmin = A[i]
+                    if A[i] > xmax:
+                        xmax = A[i]
+
+                k = xmax - xmin + 1
+                kubelki = [0] * k
+
+                for i in range(n):
+                    kubelki[A[i] - xmin] += 1
+
+                indeks_tab = 0
+                indeks_kubelka = 0
+
+                while indeks_tab < n:
+                    if kubelki[indeks_kubelka] != 0:
+                        A[indeks_tab] = xmin + indeks_kubelka
+                        kubelki[indeks_kubelka] -= 1
+                        indeks_tab += 1
+                    else:
+                        indeks_kubelka += 1
+
+                print(A)
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n + k)</b></p><br>
+            <p>&nbsp;&nbsp;&nbsp;n - liczba elementów w tablicy</p>
+            <p>&nbsp;&nbsp;&nbsp;k - zakres wartości w tablicy, czyli <i>max - min + 1</i></p>
+            </article><br><br>
+        </section>
+        <section><!--Sortowanie szybkie-->
+            <h1 class="collapsible active">Sortowanie szybkie</h1>
+            <article><pre class="lang-python" style="max-height: none;"><code>
+                import random
+  
+                def szybkie(A, p ,k):
+                    i = p
+                    j = k
+                    m = A[(p + k) // 2]
+                    while i <= j:
+                        while A[i] < m: i += 1
+                        while A[j] > m: j -= 1
+                        if i <= j:
+                            A[i], A[j] = A[j], A[i]
+                            i += 1
+                            j -= 1
+                    if p < j: szybkie(A, p, j)
+                    if i < k: szybkie(A, i, k)
+
+
+                n = int(input("Podaj ilość liczb w tablicy: "))
+                A = []
+                for i in range(n):
+                    A.append(random.randint(-10, 10))
+                print(A)
+                szybkie(A, 0, n-1)
+                print(A)
+            </code></pre>
+            <p>Złożoność: <b style="font-size: larger;">O(n ⋅ log n)</b></p><br>
+            <p>&nbsp;&nbsp;&nbsp;n - liczba elementów w tablicy</p>
+            </article><br><br>
+        </section>
         <section><!--Sortowanie przez scalanie-->
             <h1 class="collapsible active">Sortowanie przez scalanie</h1>
             <article><pre class="lang-python" style="max-height: none;"><code>
@@ -72,7 +148,7 @@
                 sortowanie_scalanie(A, 0, len(A) - 1)
                 print(A)
             </code></pre>
-            <p>Złożoność: <b style="font-size: larger;">O(n ⋅ log<sub>2</sub>n)</b></p><br>
+            <p>Złożoność: <b style="font-size: larger;">O(n ⋅ log n)</b></p><br>
             <p>&nbsp;&nbsp;&nbsp;n - liczba elementów w tablicy</p>
             </article><br><br>
         </section>
