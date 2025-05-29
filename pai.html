@@ -13,6 +13,78 @@
         <a id="unclicked" class="button mat" href="./mat.html">Matematyka</a>
     </aside>
     <main>
+        <section><!--Kółko i krzyżyk-->
+            <h1 class="collapsible active">Kółko i krzyżyk</h1>
+            <article><script type="text/plain" class="language-markup" style="max-height: none;">
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>KK</title>
+                </head>
+                <body>
+                    <script src="script.js">&lt;/script>
+                </body>
+                </html>
+            </script>
+            <script type="text/plain" class="language-js" style="max-height: none;">
+                let tura = "kółko"
+                let plansza = "012345678"
+                while(true){
+                    //wyświetlanie
+                    let liczba, msg = `Tura: ${tura}
+                    ${plansza[0]}   ${plansza[1]}   ${plansza[2]}
+                    ${plansza[3]}   ${plansza[4]}   ${plansza[5]}
+                    ${plansza[6]}   ${plansza[7]}   ${plansza[8]}
+                    \nWybierz pozycje swojego znaku:`
+                
+                    //wprowadzanie i sprawdzanie poprawności danych
+                    do{
+                        liczba = prompt(msg)
+                    }while(liczba.includes(",") || !Number.isInteger(parseFloat(liczba)) || Number.isNaN(liczba) || parseInt(liczba) < 0 || parseInt(liczba) > 8)
+                    liczba = parseInt(liczba)
+                    msg = msg.replaceAll("To miejsce jest już zajęte!/n", "")
+                    
+                    //zamiana znaków
+                    let znak
+                    if(tura == "kółko") znak = "O"
+                    else if(tura == "krzyżyk") znak = "X"
+                    if(plansza[liczba] != "X" && plansza[liczba] != "O"){
+                        plansza = plansza.replace(String(liczba), znak)
+                        if(tura == "kółko") tura = "krzyżyk"
+                        else if(tura == "krzyżyk") tura = "kółko"
+                    }
+                    else{
+                        msg = "To miejsce jest już zajęte!/n" + msg
+                    }
+                
+                    //sprawdzanie wygranej
+                    if ((plansza[0] == znak && plansza[1] == znak && plansza[2] == znak) || 
+                        (plansza[3] == znak && plansza[4] == znak && plansza[5] == znak) ||
+                        (plansza[6] == znak && plansza[7] == znak && plansza[8] == znak) ||
+                        (plansza[0] == znak && plansza[3] == znak && plansza[6] == znak) ||
+                        (plansza[1] == znak && plansza[4] == znak && plansza[7] == znak) ||
+                        (plansza[2] == znak && plansza[5] == znak && plansza[8] == znak) ||
+                        (plansza[0] == znak && plansza[4] == znak && plansza[8] == znak) ||
+                        (plansza[2] == znak && plansza[4] == znak && plansza[6] == znak)){
+                            alert(
+                                `${plansza[0]}   ${plansza[1]}   ${plansza[2]}\n${plansza[3]}   ${plansza[4]}   ${plansza[5]}\n${plansza[6]}   ${plansza[7]}   ${plansza[8]}\nWygrywa ${znak}!`
+                            )
+                            break
+                        }
+                    //sprawdzanie remisu
+                    else{
+                        if(!(plansza.includes('1') || plansza.includes('2') || plansza.includes('2') || plansza.includes('3') ||
+                            plansza.includes('4') || plansza.includes('5') || plansza.includes('6') || plansza.includes('7') ||
+                            plansza.includes('8') || plansza.includes('9') || plansza.includes('0'))){
+                            alert(
+                                `${plansza[0]}   ${plansza[1]}   ${plansza[2]}\n${plansza[3]}   ${plansza[4]}   ${plansza[5]}\n${plansza[6]}   ${plansza[7]}   ${plansza[8]}\nRemis!`
+                            )
+                            break
+                        }
+                    }
+                }
+            </script></article><br><br>
+        </section>
         <section><!--MyLib-->
             <h1 class="collapsible active">MyLib</h1>
             <script type="text/plain" class="language-js" style="max-height: none;">
