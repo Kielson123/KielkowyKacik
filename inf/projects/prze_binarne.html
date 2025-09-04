@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przeszukiwanie binarne</title>
+</head>
+<body>
+    <h1 class="collapsible active">Przeszukiwanie binarne</h1>
+    <article>
+        <pre class="lang-python" style="max-height: none;"><code>
+            import random
+
+            n = int(input("Podaj wielkość zbioru: "))
+            x = int(input("Podaj szukaną: "))
+
+            A = []
+            for i in range(n):
+                A.append(random.randint(-10, 10))
+            A.sort()
+            print(A)
+
+            lewy = 0
+            prawy = n - 1
+            while lewy < prawy:
+                srodek = (lewy + prawy) // 2
+                if A[srodek] < x:
+                    lewy = srodek + 1
+                else:
+                    prawy = srodek
+            
+            if A[lewy] == x:
+                print(f"Znaleziono {x} o indeksie {lewy}")
+            else:
+                print(f"Nie znaleziono {x}")
+        </code></pre>
+        <p>Złożoność: <b style="font-size: larger;">O(log n)</b></p>
+    </article>
+    <br><br>
+</body>
+</html>

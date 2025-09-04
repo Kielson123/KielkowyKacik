@@ -9,7 +9,7 @@ html{
     box-sizing: border-box;
 }
 
-.button{
+.tab-links{
     float: right;
     background-color:rgb(55, 110, 211);
     cursor:pointer;
@@ -21,13 +21,14 @@ html{
     color: black;
     text-decoration: none;
     font-size: 17px;
+    border: 0px;
 }
 
-.button#clicked{
+.tab-links#clicked{
     background-color:rgb(120, 175, 230);
 }
 
-.button:hover{
+.tab-links:hover{
     background-color:rgb(86, 131, 216);
     transition: all 0.5s;
 }
@@ -83,7 +84,7 @@ body{
     padding: 15px;
 }
 
-aside{
+div.tab-buttons{
     display: flex;
     padding: 10px 3px 10px 0px;
     flex-direction: column;
@@ -112,7 +113,7 @@ section{
         border-radius: 10px 10px 0px 0px;
         margin: 0px 3px 3px 3px;
     }
-    aside{
+    .tab-buttons{
         flex-direction: row;
         flex-wrap: wrap-reverse;
         max-width: 100vh;
