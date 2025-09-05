@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyrażenie</title>
+</head>
+<body>
+    <h1 class="collapsible active">Wyrażenie</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="pl">
+            <head>
+                <meta charset="UTF-8">
+                <title>Wyrazenie</title>
+                <link rel="stylesheet" href="style.css">
+            </head>
+            <body>
+                <script src="mylib.js">&lt;/script>
+                <script src="skrypt.js">&lt;/script>
+                <main>
+                    <h1>Obliczam poniższe wyrażenie:</h1>
+                    <img src="./wyr.png" alt="Obraz ze wzorem, który obliczam">
+                    <ul>
+                        <li><i>&micro;, b</i> - matematycznie poprawne, wprowadzone przez użytkownika z klawiatury liczby całkowite</li>
+                        <li><i>&alpha;</i> - wprowadzona przez użytkownika w stopniach z zakresu &lt;30&deg;, 60&deg;&gt;</li>
+                        <li>&Pi; - stała matematyczna &Pi;</li>
+                        <li><i>c<sub>x</sub></i> - element tablicy z losowymi liczbami całkowitymi z zakresu &lt;-40, 60&gt;</li>
+                    </ul>
+                    <br>
+                    <input type="button" value="Oblicz" onclick="oblicz()">
+                </main>
+            
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-css" style="max-height: none;">
+            main{
+                background-color: greenyellow;
+            }
+            
+            ul{
+                size: 140%;
+            }
+            
+            table{
+                background-color: greenyellow;
+            }
+            
+            tr{
+                border: 2px solid green;
+            }
+            
+            td{
+                border: 1px dashed green;
+            }         
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            function oblicz(){
+                //wprowadzanie 'alfa'
+                let alfa, msg = "Wprowadź 'alfa' w stopniach (zakres: 30-60): "
+                do{
+                    alfa = inputNum(msg, 30)
+                    if(alfa < 30 || alfa > 60) msg = "Błąd wprowadzania!\n Podaj jeszcze raz (zakres: 30-60): "
+                    if(alfa === false) return false
+                } while(alfa < 30 || alfa > 60)
+                
+                //wprowadzanie 'c'
+                let c = [], los, result_txt = `<link rel="stylesheet" href="style.css"><table><tbody>`
+                for(let x = 0; x <= 24; x++){
+                    los = randUni(-40, 60)
+                    result_txt += `<tr><td>c[${x+1}] = </td><td>${los}</td></tr>`
+                    c.push(los)
+                }
+            
+                //wprowadzanie 'mikro'
+                let micro
+                msg = "Podaj dowolne 'mikro': "
+                do{
+                    micro = inputNum(msg)
+                    if(!Number.isInteger(micro)) msg = "Błąd wprowadzania!\n Podana wartość ma być liczbą całkowitą: "
+                    if(micro === false) return false
+                } while(!Number.isInteger(micro))
+                
+                //wprowadzanie 'b'
+                let b
+                msg = "Podaj dowolne 'b': "
+                do{
+                    b = inputNum(msg)
+                    if(!Number.isInteger(b)) msg = "Błąd wprowadzania!\n Podana wartość ma być liczbą całkowitą: "
+                    if(b === false) return false
+                } while(!Number.isInteger(b))
+                
+                result_txt += `
+                    <tr><td>&alpha;=</td><td>${alfa}</td></tr>
+                    <tr><td>&micro;=</td><td>${micro}</td></tr>
+                    <tr><td>b=</td><td>${b}</td></tr>`
+            
+                //liczymy
+                alfa = degToRad(alfa)
+                let pod = 0
+                for(let x = 0; x <= 24; x++){
+                    part = c[x]*Math.sin(alfa)+micro
+                    pod += part
+                    result_txt += `<tr><td>w. częsicowy = ${part.toFixed(3)}</td><td>akt. suma = ${pod.toFixed(3)}</td></tr>`
+                }
+                pod += 1.23
+                pod = Math.abs(pod)
+            
+                let ni = (Math.PI - 1/Math.tan(alfa)) / (0.2 + pod ** 0.125) + b
+                result_txt += `<tr><td>ni = </td><td>${ni.toFixed(3)}</td></tr>`
+            
+                let avg = 0, ile = 0
+                for(let x = 2; x <= 24; x+=2){
+                    ile++
+                    avg += c[x-1]
+                }
+                avg /= ile
+                result_txt += `<tr><td>avg. z wyr. o parzystych indeksach</td><td>${avg.toFixed(3)}</td></tr>`
+            
+                ile = 0
+                for(let x = 0; x <= 24; x++){
+                    if(c[x].toString().includes('3')){
+                        ile++
+                        result_txt += `<tr><td>3 w</td><td>${c[x]}</td></tr>`
+                    }
+                }
+                result_txt += `<tr><td>liczba wyrazów z '3'</td><td>${ile}</td></tr></tbody></table>`
+                document.writeln(result_txt)
+            }
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

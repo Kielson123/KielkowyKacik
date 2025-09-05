@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Losowanie</title>
+</head>
+<body>
+    <h1 class="collapsible active">Losowanie</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="pl">
+            <head>
+                <meta charset="UTF-8">
+                <title>Losowanie</title>
+            </head>
+            <body>
+                <script src="./losowanie.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            /*let stats = [0, 0, 0, 0, 0, 0]
+            for(let ile = 0; ile < 100; ile++){
+                stats[Math.ceil(Math.random()*6) - 1]++
+            }
+            console.log(stats)*/
+            function randUni(min, max = 0, strFormat = false, commaSep = false){
+                min = parseFloat(min)
+                max = parseFloat(max)
+                if(isNaN(min) || isNaN(max)){
+                    console.log("")
+                }
+                let minTemp = min
+                min = Math.min(min, max)
+                max = Math.max(minTemp, max)
+                mul = 10**Math.max(
+                    Number.isInteger(min) ? 0 : min.toString().split(".")[1].length,
+                    Number.isInteger(max) ? 0 : max.toString().split(".")[1].length
+                )
+                min *= mul
+                max *= mul
+                let result = Math.floor(Math.random() * (max - min + 1) + min) / mul
+                if(strFormat){
+                    result = result.toString()
+                    if(commaSep){
+                        return result.replaceAll(".", ",")
+                    }
+                    return result
+                }
+                return result
+            }
+            results = []
+            for(let ile = 0; ile < 100; ile++){
+                results.push(randUni(1, 2.456, false, true))
+            }
+            console.log(results)
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szlaczek 0</title>
+</head>
+<body>
+    <h1 class="collapsible active">Szlaczek 0</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Szlaczek 0</title>
+                <style>
+                    p{
+                        font-family: 'Courier New', Courier, monospace;
+                        letter-spacing: 9px;
+                    }
+                </style>
+            </head>
+            <body>
+                <script src="0.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            let n = parseInt(prompt("Podaj długość: ", 4))
+            let N = parseInt(prompt("Podaj ilość: ", 3))
+            let znak = prompt("Podaj znak: ", "#")
+            let dlugosc_powtorzenia = (n-1) * 2
+            document.write(`<p>`)
+            for (let w = 0; w < n; w++){
+                for (let i = 0; i < N; i++){
+                    for (let k = 0; k < dlugosc_powtorzenia; k++){
+                        if (k == n - 2){
+                            document.write(znak)
+                        }
+                        else if (k == dlugosc_powtorzenia - 1){
+                            document.write(znak)
+                        }
+                        else if (w == 0 && k < n - 2){
+                            document.write(znak)
+                        }
+                        else if (w == n - 1 && k < dlugosc_powtorzenia - 1 && k > n - 2){
+                            document.write(znak)
+                        }
+                        else {
+                            document.write("&nbsp")
+                        }
+                    }
+                }
+                document.write("<br>")
+            }
+            document.write(`</p>`)
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

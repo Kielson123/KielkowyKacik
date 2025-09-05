@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szlaczek 2 (Choinka)</title>
+</head>
+<body>
+    <h1 class="collapsible active">Szlaczek 2 (Choinka)</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Szlaczek 2</title>
+                <style>
+                    p{
+                        font-family: 'Courier New', Courier, monospace;
+                        letter-spacing: 9px;
+                    }
+                </style>
+            </head>
+            <body>
+                <script src="2.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            let znak = prompt("Podaj znak: ", "*")
+            let dlugosc = parseInt(prompt("Podaj wielkość: ", "5"))
+            let wysokosc = dlugosc / 2
+            if(dlugosc % 2 != 0){
+                Math.floor(wysokosc) + 1
+            }
+            let srodek = Math.floor(dlugosc / 2)
+            document.write(`<p>`)
+            for(let w = 0; w < wysokosc; w++) {
+                for(let k = 0; k < dlugosc; k++) {
+                    if(dlugosc % 2 == 0 && k == 0){
+                        continue
+                    }
+                    if(k > srodek + w || k < srodek - w) {
+                        document.write("&nbsp;")
+                    }
+                    else{
+                        document.write(znak)
+                    }
+                }
+                document.write(`<br>`)
+            }
+            document.write(`</p>`)
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

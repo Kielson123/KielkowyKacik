@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyrażenie 11</title>
+</head>
+<body>
+    <h1 class="collapsible active">Wyrażenie 11</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="pl">
+            <head>
+                <meta charset="UTF-8">
+                <title>Wyr. 11</title>
+                <link rel="stylesheet" href="./11.css">
+            </head>
+            <body>
+                <main>
+                    <img src="./11.png" alt="Obraz z wyrażeniem nr 11" srcset="">
+                    <section>
+                        <ul>Gdzie:
+                            <li><i>d</i> - musi być różne od zera</li>
+                            <li><i>p</i> - nie może być ujemne</li>
+                            <li><i>w</i> - dowolna wartość liczbowa</li>
+                        </ul>
+                    </section>
+                    <button type="button" onclick="oblicz()">Oblicz wyrażenie</button>
+                </main>
+                <script src="./mylib.js">&lt;/script>
+                <script src="./11.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-css" style="max-height: none;">
+            main {
+                width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 20px;
+                text-align: center;
+                background-color: rgb(246, 192, 104);
+            }
+            section {
+                margin-left: auto;
+                margin-right: auto;
+                width: 400px;
+                text-align: left;
+            }
+            
+            button {
+                height: 40px;
+                width: 400px;
+                background-color: rgb(229, 159, 46);
+                transition: 0.5s width;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            button:hover {
+                width: 460px;
+                background-color: black;
+                color: rgb(229, 159, 46);
+            }                
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            function oblicz() {
+                // wprowadzanie parametru 'p'
+                let p  
+                let msg = "Podaj parametr 'p' nieujemny:"
+                do {
+                    p = inputNum(msg)
+                    if (p === false) return false
+                    if (p<0) msg = `Wprowadzono '${p}'.\nWartość parametru 'p' powinna być liczbą nieujemną.\nPodaj ponownie:`
+                } while (p<0)
+                
+                // wprowadzanie parametru 'd'
+                msg = "Podaj parametr 'd' różny od zera:"
+                let d
+                do {
+                    d = inputNum(msg)
+                    if (d === false) return false
+                    if (d == 0) msg = `Wprowadzono 'zero'.\nWartość parametru 'd' powinna być liczbą różną od zera.\nPodaj ponownie:`
+                } while (d==0)
+                
+                // wprowadzanie parametru 'p'
+                let w = inputNum("Podaj parametr 'w' dowolny:")
+            
+                // obliczenia
+                let dW = (p/.123)**(1/6)*2*p/d+3*w
+                document.writeln(`
+                    <link rel="stylesheet" href="11.css">
+                    <main>
+                        <h1>Wyrażenie: </h1><br><br>
+                        <img src="./11.png" alt="Obraz z wyrażeniem nr 11" srcset="">
+                        <section>
+                            <h1>
+                                <ul>Przy zadanych:
+                                    <li><i>d</i>: ${d}</li>
+                                    <li><i>p</i>: ${p}</li>
+                                    <li><i>w</i>: ${w}</li>
+                                </ul>
+                            
+                        </section>
+                        <h1>Wynosi: ${dW.toFixed(4)}</h1>
+                    </main>
+                    `)
+            }
+            
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

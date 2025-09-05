@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szlaczek 4 (Koło)</title>
+</head>
+<body>
+    <h1 class="collapsible active">Szlaczek 4 (Koło)</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Szlaczek 4</title>
+                <style>
+                    p{
+                        font-family: 'Courier New', Courier, monospace;
+                        letter-spacing: 9px;
+                    }
+                </style>
+            </head>
+            <body>
+                <script src="4.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            let r = parseInt(prompt("Podaj promień: ", 8))
+            let czy_wypelniony = confirm("Ma być koło(Ok), czy okrąg(Anuluj)?")
+            let znak = "#"
+                        
+            let srodek = r * 2 - 1
+            let dlugosc = 2 * r + 1
+                        
+            document.write(`<p>`)
+            for (let w = -r; w <= r; w++) {
+                for (let k = -r; k <= r; k++) {
+                    let odleglosc = Math.sqrt((w * w) + (k * k));
+                    if (czy_wypelniony) {
+                        if (odleglosc <= r) {
+                            document.write(znak);
+                        } else {
+                            document.write(`&nbsp`);
+                        }
+                    } else {
+                        if (odleglosc >= r - 0.5 && odleglosc <= r + 0.5) {
+                            document.write(znak);
+                        } else {
+                            document.write(`&nbsp`);
+                        }
+                    }
+                }
+                document.write(`<br>`);
+            }
+            document.write(`</p>`)
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

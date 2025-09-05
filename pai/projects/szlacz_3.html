@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szlaczek 3 (Romb)</title>
+</head>
+<body>
+    <h1 class="collapsible active">Szlaczek 3 (Romb)</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Szlaczek 3</title>
+                <style>
+                    p{
+                        font-family: 'Courier New', Courier, monospace;
+                        letter-spacing: 9px;
+                    }
+                </style>
+            </head>
+            <body>
+                <script src="3.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            let n = parseInt(prompt("Podaj długość boku: ", 5))
+            let znak = "#"
+            let szerokość = n + (n - 1)
+            let srodek = n - 1
+            document.write(`<p>`)
+            for(let w = 0; w < szerokość - n; w++){
+                for(let k = 0; k < szerokość; k++){
+                    if (w == srodek - k || w == k - srodek){
+                        document.write(znak)
+                    }
+                    else{
+                        document.write(`&nbsp`)
+                    }
+                }
+                document.write(`<br>`)
+            }
+            for(let w = szerokość - n; w >= 0; w--){
+                for(let k = szerokość - 1; k >= 0; k--){
+                    if (w == srodek - k || w == k - srodek){
+                        document.write(znak)
+                    }
+                    else{
+                        document.write(`&nbsp`)
+                    }
+                }
+                document.write(`<br>`)
+            }
+            document.write(`</p>`)
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

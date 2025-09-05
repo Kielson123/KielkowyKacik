@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szlaczek 1 (^^^)</title>
+</head>
+<body>
+    <h1 class="collapsible active">Szlaczek 1 (^^^)</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Szlaczek 1</title>
+                <style>
+                    p{
+                        font-family: 'Courier New', Courier, monospace;
+                        letter-spacing: 9px;
+                    }
+                </style>
+            </head>
+            <body>
+                <script src="1.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            let znak = prompt("Podaj znak: ", "#")
+            let n = parseInt(prompt("Podaj wielkość: ", "5"))
+            let N = parseInt(prompt("Podaj ilość powtórzeń: ", "3"))
+            let dlugosc_powtorzenia = n + (n - 2)
+            document.write(`<p>`)
+            for(let w = 0; w < n; w++) {
+                for(let i = 0; i < N; i++) {
+                    for(let k = 1; k <= dlugosc_powtorzenia; k++) {
+                        if(k == n + w || k == n - w){
+                            document.write(znak)
+                        }
+                        else{
+                            document.write("&nbsp")
+                        }
+                    }
+                }
+                document.write(`<br>`)
+            }
+            document.write(`</p>`)
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

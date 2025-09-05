@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura</title>
+</head>
+<body>
+    <h1 class="collapsible active">Temperatura</h1>
+    <article>
+        <script type="text/plain" class="language-markup" style="max-height: none;">
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>temperatura</title>
+            </head>
+            <body>
+                <script>
+                    var temp = parseFloat(prompt(`Podaj temeraturę pacjenta: `))
+                    document.write(`<p>`)
+                    if (temp <= 35) document.write(`style="color: blue" >Zimny trup.`)
+                    else if (temp < 36.6) document.write(`style="color: cadetblue" >Walnij setę.`)
+                    else if (temp == 36.6) document.write(`style="color: green" >Jest ok.`)
+                    else if (temp <= 37.5) document.write(`style="color: yellow" >Stan podgorączkowy.`)
+                    else if (temp < 39) document.write(`style="color: orange" >Zrób zimny kompres.`)
+                    else if (temp <= 41) document.write(`style="color: red" >Weź pigułkę.`)
+                    else document.write(`style="color: black" >Mózg zlasowany.`)
+                    document.write(`</p>`)
+                &lt;/script>
+            </body>
+            </html>
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>

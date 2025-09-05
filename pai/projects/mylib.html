@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLib</title>
+</head>
+<body>
+    <h1 class="collapsible active">MyLib</h1>
+    <article>
+        <script type="text/plain" class="language-js" style="max-height: none;">
+            function inputNum(msg, def = 1) {
+                do {
+                    valSTemp = prompt(msg, def)
+                    if (valSTemp==null) {
+                        document.writeln(`<h1 style:"color: red">Zrezygnowałeś z wprowadzania danych ;(</h1>`)
+                        return false 
+                    }
+                    valS = valSTemp.replaceAll(" ","").replace(",",".")
+                    val = parseFloat(valS)
+                    if (isNaN(val)) {
+                        msg = `Wprowadzona wartość:\n"${valSTemp}"\nto nie jest liczba.\nPodaj ponownie wartość liczbową:`
+                        continue
+                    }
+                    if (val != valS) {
+                        msg = `Wprowadzona wartość:\n"${valSTemp}"\nnie jest w poprawnym formacie.\nPodaj ponownie wartość liczbową:`
+                        continue
+                    }
+                } while (isNaN(val) || val != valS)
+                    return val
+            }
+            
+            function randUni(min, max = 0, strFormat = false, commaSep = false){
+                min = parseFloat(min)
+                max = parseFloat(max)
+                if(isNaN(min) || isNaN(max)){
+                    console.log("")
+                }
+                let minTemp = min
+                min = Math.min(min, max)
+                max = Math.max(minTemp, max)
+                mul = 10**Math.max(
+                    Number.isInteger(min) ? 0 : min.toString().split(".")[1].length,
+                    Number.isInteger(max) ? 0 : max.toString().split(".")[1].length
+                )
+                min *= mul
+                max *= mul
+                
+                let result = Math.floor(Math.random() * (max - min + 1) + min) / mul
+                if(strFormat){
+                    result = result.toString()
+                    if(commaSep){
+                        return result.replaceAll(".", ",")
+                    }
+                }
+                return result
+            }
+            
+            function degToRad(alfa){
+                return alfa*Math.PI/180
+            }
+        </script>
+    </article>
+    <br><br>
+</body>
+</html>
