@@ -27,18 +27,19 @@ function addHtml() {
             xhttp.open("GET", file, true);
             xhttp.send();
 
+            setTimeout(function() {Prism.highlightAll()}, 10);
             return;
         }
     }
 }
 
-function openTab(event, tabName) {
-    let tabcontent = document.getElementsByClassName("tab-content");
+function openTab(event, tabName, type) {
+    let tabcontent = document.getElementsByClassName(type + "-content");
     for (let i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
   
-    let tablinks = document.getElementsByClassName("tab-links");
+    let tablinks = document.getElementsByClassName(type + "-links");
     for (let i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }

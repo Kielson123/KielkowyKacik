@@ -9,7 +9,7 @@ html{
     box-sizing: border-box;
 }
 
-.tab-links{
+.subject-links{
     float: right;
     background-color:rgb(55, 110, 211);
     cursor:pointer;
@@ -24,11 +24,11 @@ html{
     border: 0px;
 }
 
-.tab-links#clicked{
+.subject-links#clicked{
     background-color:rgb(120, 175, 230);
 }
 
-.tab-links:hover{
+.subject-links:hover{
     background-color:rgb(86, 131, 216);
     transition: all 0.5s;
 }
@@ -78,14 +78,12 @@ math{
 
 body{
     display: flex;
-    background-color: rgb(20, 20, 30);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     flex-direction: row;
-    padding: 15px;
 }
 
-div.tab-buttons{
-    display: flex;
+.subject-buttons{
+    display: none;
     padding: 10px 3px 10px 0px;
     flex-direction: column;
     max-width: 150px;
@@ -94,41 +92,31 @@ div.tab-buttons{
 main{
     height: max-content;
     padding: 35px;
-    margin-top: 10px;
-    width: 94.5%;
-    background-color:rgb(40, 40, 70);
+    padding-top: 50px;
+    background-color: rgb(40, 40, 70);
     color: aliceblue;
+    width: 100%;
 }
 
 section{
     padding: 15px 0px 0px 37.5px;
 }
 
-@media screen and (max-width: 850px){
-    body{
-        flex-direction: column;
-        padding: 0px;
-    }
-    .button{
-        border-radius: 10px 10px 0px 0px;
-        margin: 0px 3px 3px 3px;
-    }
-    .tab-buttons{
-        flex-direction: row;
-        flex-wrap: wrap-reverse;
-        max-width: 100vh;
-        padding: 10px 2px 0px 2px;
-        justify-content:start;
-    }
-    main{
-        margin: 0px;
-        padding: 0px;
-        width: 100%;
-    }
-    section{
-        padding: 15px 0px 0px 0px;
-    }
-    h1, p{
-        padding-left: 10px;
-    }
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    color: aliceblue;
+    background-color: rgb(20, 20, 30);
+    height: 55px;
+}
+
+button#header{
+    font-size: xx-large;
+    padding: 2px 0px 0px 10px;
+    background-color: rgb(20, 20, 30);
+    color: aliceblue;
+    border: 0px;
 }

@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="tab-buttons">
-        <button class="tab-links" onclick="openTab(event, 'inf')" id="defaultOpen">Informatyka</button>
-        <button class="tab-links" onclick="openTab(event, 'pai')">PAI</button>
+    <header>
+        <button id="header">☰</button>
+    </header>
+    <div class="subject-buttons">
+        <button class="subject-links" onclick="openTab(event, 'inf', 'subject')" id="defaultOpen">Informatyka</button>
+        <button class="subject-links" onclick="openTab(event, 'pai', 'subject')">PAI</button>
     </div>
     <main>
-        <div id="inf" class="tab-content">
+        <div id="inf" class="subject-content">
             <subject include-html="./inf/inf.html"></subject>
         </div>
 
-        <div id="pai" class="tab-content">
+        <div id="pai" class="subject-content">
             <subject include-html="./pai/pai.html"></subject>
         </div>
     </main>
@@ -25,14 +28,6 @@
     <script src="./prism/prism.js" data-manual></script>
     <script>
         addHtml();
-
-        setTimeout(function() {Prism.highlightAll()}, 10);
-        setTimeout(function() {Prism.highlightAll()}, 50);
-        setTimeout(function() {Prism.highlightAll()}, 100);
-        setTimeout(function() {Prism.highlightAll()}, 500);
-        setTimeout(function() {Prism.highlightAll()}, 1000);
-        setTimeout(function() {Prism.highlightAll()}, 5000);
-        setTimeout(function() {Prism.highlightAll()}, 10000);
     </script>
 </body>
 </html>
