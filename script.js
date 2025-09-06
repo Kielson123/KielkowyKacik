@@ -59,3 +59,4 @@ function openSideMenu(){
 }
 
 document.getElementById("defaultOpen").click();
+openSideMenu()
