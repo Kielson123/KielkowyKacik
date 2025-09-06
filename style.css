@@ -9,39 +9,6 @@ html{
     box-sizing: border-box;
 }
 
-.subject-links{
-    float: right;
-    background-color:rgb(55, 110, 211);
-    cursor:pointer;
-    padding: 8px 6px 6px 6px;
-    margin-bottom: 5px;
-    min-height: 25px;
-    min-width: 125px;
-    border-radius: 10px 0px 0px 10px;
-    color: black;
-    text-decoration: none;
-    font-size: 17px;
-    border: 0px;
-}
-
-.subject-links#clicked{
-    background-color:rgb(120, 175, 230);
-}
-
-.subject-links:hover{
-    background-color:rgb(86, 131, 216);
-    transition: all 0.5s;
-}
-
-.formulas{
-    padding: 15px 0px 0px 50px;
-    font-size: large;
-}
-
-.formulas li{
-    margin-top: 20px;
-}
-
 h1 ~ article pre,
 h1 ~ article script,
 h1 ~ ul{
@@ -82,17 +49,10 @@ body{
     flex-direction: row;
 }
 
-.subject-buttons{
-    display: none;
-    padding: 10px 3px 10px 0px;
-    flex-direction: column;
-    max-width: 150px;
-}
-
 main{
     height: max-content;
     padding: 35px;
-    padding-top: 50px;
+    padding-top: 80px;
     background-color: rgb(40, 40, 70);
     color: aliceblue;
     width: 100%;
@@ -100,6 +60,28 @@ main{
 
 section{
     padding: 15px 0px 0px 37.5px;
+    margin-right: 400px;
+}
+
+pre{
+    min-width: 650px;
+}
+
+menu{
+    display: none;
+    background-color: rgb(20, 20, 30);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 90%;
+    opacity: 95%;
+    min-width: 375px;
+    max-width: 775px;
+}
+
+menu.active{
+    display: inline;
 }
 
 header{
@@ -113,11 +95,23 @@ header{
     height: 55px;
 }
 
-
-button#header{
+p#header{
     font-size: xx-large;
-    padding: 2px 0px 0px 10px;
+    cursor:pointer;
+    padding: 3px 0px 0px 15px;
     background-color: rgb(20, 20, 30);
     color: aliceblue;
     border: 0px;
+}
+
+div#header{
+    width: 65px;
+    height: 55px;
+}
+
+.subject-links{
+    cursor:pointer;
+    font-size: larger;
+    color: aliceblue;
+    padding: 200px 50px 100px 50px;
 }

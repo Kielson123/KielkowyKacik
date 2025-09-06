@@ -27,7 +27,7 @@ function addHtml() {
             xhttp.open("GET", file, true);
             xhttp.send();
 
-            setTimeout(function() {Prism.highlightAll()}, 10);
+            Prism.highlightAll()
             return;
         }
     }
@@ -46,6 +46,16 @@ function openTab(event, tabName, type) {
   
     document.getElementById(tabName).style.display = "flex";
     event.currentTarget.className += " active";
+}
+
+function openSideMenu(){
+    let side_menu = document.getElementById("side_menu")
+
+    if(side_menu.className == ""){
+        side_menu.className = "active"
+    }else{
+        side_menu.className  = ""
+    }
 }
 
 document.getElementById("defaultOpen").click();

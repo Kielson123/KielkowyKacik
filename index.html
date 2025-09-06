@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <menu id="side_menu">
+        <div class="subject-links" onclick="openTab(event, 'inf', 'subject');openSideMenu()" id="defaultOpen">Informatyka</div>
+        <div class="subject-links" onclick="openTab(event, 'pai', 'subject');openSideMenu()">PAI</div>
+    </menu>
     <header>
-        <button id="header">☰</button>
+        <div id="header" onclick="openSideMenu()">
+            <p id="header">☰</p>
+        </div>
     </header>
-    <div class="subject-buttons">
-        <button class="subject-links" onclick="openTab(event, 'inf', 'subject')" id="defaultOpen">Informatyka</button>
-        <button class="subject-links" onclick="openTab(event, 'pai', 'subject')">PAI</button>
-    </div>
     <main>
         <div id="inf" class="subject-content">
             <subject include-html="./inf/inf.html"></subject>
