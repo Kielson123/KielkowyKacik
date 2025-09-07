@@ -14,9 +14,12 @@ h1 ~ article script,
 h1 ~ ul{
     min-height: 0px;
     max-height: 0px;
-    overflow:hidden;
+    overflow: hidden;
     transition: max-height 0.2s ease-out;
     scrollbar-width: 0px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    color: red
 }
 
 /*hide scrollbar when collapsed*/
@@ -25,22 +28,14 @@ h1 ~ article script::-webkit-scrollbar,
 h1 ~ ul::-webkit-scrollbar{
     display: none;
 }
-  
-  
-h1 ~ article pre,
-h1 ~ article script,
-h1 ~ ul{
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+ 
+pre[class*="language-"]{
+    max-width: 100%;
 }
 
-span#mat{
-    font-style: italic;
-    color: #a9a9a9;
-}
-
-math{
-    font-size: larger;
+code[class*="language-"]{
+    
+    
 }
 
 body{
@@ -51,40 +46,26 @@ body{
 
 main{
     height: max-content;
-    padding: 35px;
-    padding-top: 80px;
+    padding-top: 20px;
+    padding-bottom: 80px;
     background-color: rgb(40, 40, 70);
     color: aliceblue;
     width: 100%;
 }
 
 section{
-    padding: 15px 0px 0px 37.5px;
-    margin-right: 400px;
-}
-
-pre{
-    min-width: 650px;
+    padding: 15px 0px 0px 37px;
 }
 
 menu{
-    display: none;
     background-color: rgb(20, 20, 30);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 90%;
-    opacity: 95%;
-    min-width: 375px;
-    max-width: 775px;
-}
-
-menu.active{
-    display: inline;
+    width: 15%;
+    min-width: 200px;
+    padding: auto;
 }
 
 header{
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -93,6 +74,7 @@ header{
     color: aliceblue;
     background-color: rgb(20, 20, 30);
     height: 55px;
+    max-width: 100%;
 }
 
 p#header{
@@ -109,9 +91,47 @@ div#header{
     height: 55px;
 }
 
+.subject-content{
+    max-width: 100%;
+}
+
 .subject-links{
     cursor:pointer;
     font-size: larger;
     color: aliceblue;
     padding: 200px 50px 100px 50px;
+}
+
+.subject-links:hover{
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 1440px) {
+    menu{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        opacity: 92.5%;
+        min-width: 100%;
+        max-width: 600px;
+        padding: 155px 50px 50px 50px;
+    }
+
+    menu.active{
+        display: inline;
+    }
+
+    header{
+        display: block;
+    }
+
+    section{
+        padding-left: 15px;
+    }
+
+    main{
+        padding-top: 80px;
+    }
 }
