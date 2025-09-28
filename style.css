@@ -30,12 +30,9 @@ h1 ~ ul::-webkit-scrollbar{
 }
  
 pre[class*="language-"]{
-    max-width: 100%;
 }
 
 code[class*="language-"]{
-    
-    
 }
 
 body{
@@ -114,9 +111,10 @@ div#header{
         left: 0;
         height: 100%;
         opacity: 92.5%;
-        min-width: 100%;
-        max-width: 600px;
-        padding: 155px 50px 50px 50px;
+        min-width: 200px;
+        padding: auto;
+        padding-top: 55px;
+        width: 25%;
     }
 
     menu.active{
@@ -133,5 +131,16 @@ div#header{
 
     main{
         padding-top: 80px;
+    }
+
+    .subject-links{
+        padding: auto;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    pre[class*="language-"],
+    code[class*="language-"]{
+        font-size: 90%;
     }
 }
