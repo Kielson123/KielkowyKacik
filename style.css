@@ -118,7 +118,8 @@ div#header{
 
 @media only screen and (max-width: 600px){
     pre[class*="language-"],
-    code[class*="language-"]
+    code[class*="language-"],
+    *
     {
         font-size: 90%;
     }
