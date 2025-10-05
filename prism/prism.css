@@ -15,7 +15,7 @@ pre[class*="language-"] {
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
-	word-break: normal;
+	word-break: break-all;
 	line-height: 1.5;
 
 	-moz-tab-size: 4;
@@ -26,14 +26,18 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+
+	min-width: 0px;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 2em;
 	margin: .5em 0;
-	overflow: auto;
+	overflow: hidden;
 	border-radius: 1.5em;
+
+	min-width: 0px;
 }
 
 :not(pre) > code[class*="language-"],
@@ -46,6 +50,8 @@ pre[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
 	white-space: normal;
+	
+	min-width: 0px;
 }
 
 .token.comment,
@@ -208,6 +214,6 @@ script[type='text/plain'][class*='language-'] {
 	display: block;
 	font: 100% Consolas, Monaco, monospace;
 	white-space: pre;
-	overflow: auto;
+	overflow: hidden;
 }
 

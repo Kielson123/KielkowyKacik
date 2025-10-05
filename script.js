@@ -33,19 +33,26 @@ function addHtml() {
     }
 }
 
-function openTab(event, tabName, type) {
-    let tabcontent = document.getElementsByClassName(type + "-content");
-    for (let i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+function openTab(html_path) {
+    let main = document.getElementsByTagName('main')[0]
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                main.innerHTML = this.responseText;
+            }
+            if (this.status == 404) {
+                main.innerHTML = "Page not found.";
+            }
+        }
     }
-  
-    let tablinks = document.getElementsByClassName(type + "-links");
-    for (let i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-  
-    document.getElementById(tabName).style.display = "flex";
-    event.currentTarget.className += " active";
+    xhttp.open("GET", html_path, true);
+    xhttp.send()
+    openSideMenu()
+    setTimeout(() => Prism.highlightAll(), 50)
+    setTimeout(() => Prism.highlightAll(), 100)
+    setTimeout(() => Prism.highlightAll(), 1000)
+    setTimeout(() => Prism.highlightAll(), 10000)
 }
 
 function openSideMenu(){
@@ -58,5 +65,14 @@ function openSideMenu(){
     }
 }
 
-document.getElementById("defaultOpen").click();
+function openPanel(panel_id){
+    let element = document.getElementById(panel_id)
+    if(element.style.display === "none") {
+        element.style.display = "block"
+    }else{
+        element.style.display = "none"
+  }
+}
+
+//document.getElementById("defaultOpen").click();
 openSideMenu()

@@ -1,6 +1,9 @@
-html{
+html,body{
     width: 100%;
     height: 100%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 * { 
@@ -9,45 +12,12 @@ html{
     box-sizing: border-box;
 }
 
-h1 ~ article pre,
-h1 ~ article script,
-h1 ~ ul{
-    min-height: 0px;
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    scrollbar-width: 0px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    color: red
-}
-
-/*hide scrollbar when collapsed*/
-h1 ~ article pre::-webkit-scrollbar,
-h1 ~ article script::-webkit-scrollbar,
-h1 ~ ul::-webkit-scrollbar{
-    display: none;
-}
- 
-pre[class*="language-"]{
-}
-
-code[class*="language-"]{
-}
-
-body{
-    display: flex;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    flex-direction: row;
-}
-
 main{
-    height: max-content;
-    padding-top: 20px;
-    padding-bottom: 80px;
+    display: block;
+    padding: 20px 30px 80px 480px;
     background-color: rgb(40, 40, 70);
     color: aliceblue;
-    width: 100%;
+    height: 100%;
 }
 
 section{
@@ -55,10 +25,12 @@ section{
 }
 
 menu{
+    display: block;
     background-color: rgb(20, 20, 30);
-    width: 15%;
-    min-width: 200px;
-    padding: auto;
+    padding: 20px;
+    width: 450px;
+    min-height: 100%;
+    float: left;
 }
 
 header{
@@ -74,6 +46,10 @@ header{
     max-width: 100%;
 }
 
+input:hover{
+    text-decoration: underline;
+}
+
 p#header{
     font-size: xx-large;
     cursor:pointer;
@@ -81,6 +57,8 @@ p#header{
     background-color: rgb(20, 20, 30);
     color: aliceblue;
     border: 0px;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 div#header{
@@ -88,37 +66,41 @@ div#header{
     height: 55px;
 }
 
-.subject-content{
-    max-width: 100%;
+.menu{
+    padding: 10px 10px 10px 30px;
+    margin-right: 1000px;
 }
 
-.subject-links{
-    cursor:pointer;
-    font-size: larger;
-    color: aliceblue;
-    padding: 200px 50px 100px 50px;
+.open_button:hover{
+    cursor: pointer;
 }
 
-.subject-links:hover{
-    text-decoration: underline;
+.menu_button,
+.open_button{
+    padding: 3px;
+    border: 0px;
+    background-color: rgba(0,0,0,0);
+    font-size: 20px;
+    color: white;
+    margin-right: 1000px;
 }
 
 @media only screen and (max-width: 1440px) {
     menu{
         display: none;
+        height: 100%;
+        opacity: 92.5%;
+        padding: auto;
+        padding-top: 55px;
+        margin-top: 40px;
+        width: 350px;
         position: fixed;
         top: 0;
         left: 0;
-        height: 100%;
-        opacity: 92.5%;
-        min-width: 200px;
-        padding: auto;
-        padding-top: 55px;
-        width: 25%;
     }
 
     menu.active{
-        display: inline;
+        display: block;
     }
 
     header{
@@ -130,17 +112,14 @@ div#header{
     }
 
     main{
-        padding-top: 80px;
-    }
-
-    .subject-links{
-        padding: auto;
+        padding: 80px 20px 80px 20px;
     }
 }
 
 @media only screen and (max-width: 600px){
     pre[class*="language-"],
-    code[class*="language-"]{
+    code[class*="language-"]
+    {
         font-size: 90%;
     }
 }
