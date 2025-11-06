@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operacje na plikach cz.1</title>
+</head>
+<body>
+    <h1 class="collapsible active">Operacje na plikach cz.1</h1>
+    <article>
+        <pre class="lang-python" style="max-height: none;"><code>
+            import math
+
+            def czy_pierwsza(liczba):
+                if n == 0 || n == 1:
+                    return False
+                for i in range(2, int(math.sqrt(n) + 1)):
+                    if n % i == 0:
+                        return False
+                return True
+            
+            plik = open('liczby.txt', 'r')
+
+            ilosc = 0
+            l_pierwsze = []
+            for linia in plik:
+                linia = int(linia.strip())
+
+                if czy_pierwsza(linia):
+                    print(linia, ' liczba pierwsza')
+                    l_pierwsze.append(linia)
+                    ilosc += 1
+                else:
+                    print(linia)
+            
+            print(f"\n\nIlosć liczb pierwszych: {ilosc}")
+            print(l_pierwsze)
+
+            plik.close()
+        </code></pre>
+    </article>
+</body>
+</html>

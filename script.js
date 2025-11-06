@@ -74,5 +74,5 @@ function openPanel(panel_id){
   }
 }
 
-//document.getElementById("defaultOpen").click();
 openSideMenu()
+openTab('inf/kl4/zapisywanie_do_pliku.html')
