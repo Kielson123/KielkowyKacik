@@ -46,7 +46,7 @@ header{
     max-width: 100%;
 }
 
-input:hover{
+input.open_button:hover{
     text-decoration: underline;
 }
 

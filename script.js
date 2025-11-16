@@ -49,10 +49,7 @@ function openTab(html_path) {
     xhttp.open("GET", html_path, true);
     xhttp.send()
     openSideMenu()
-    setTimeout(() => Prism.highlightAll(), 50)
-    setTimeout(() => Prism.highlightAll(), 100)
-    setTimeout(() => Prism.highlightAll(), 1000)
-    setTimeout(() => Prism.highlightAll(), 10000)
+    for(let i = 1; i <= 30; i++) setTimeout(() => Prism.highlightAll(), 50 * i)
 }
 
 function openSideMenu(){
@@ -70,9 +67,12 @@ function openPanel(panel_id){
     if(element.style.display === "none") {
         element.style.display = "block"
     }else{
-        element.style.display = "none"
+        element.style.display = "block"
   }
 }
 
 openSideMenu()
 openTab('inf/kl4/zapisywanie_do_pliku.html')
+openPanel('informatyka')
+openPanel('inf-3')
+openPanel('inf-4')
