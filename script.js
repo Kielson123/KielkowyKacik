@@ -74,5 +74,4 @@ function openPanel(panel_id){
 openSideMenu()
 openTab('inf/kl4/zaddom17lis.html')
 openPanel('informatyka')
-openPanel('inf-3')
 openPanel('inf-4')
