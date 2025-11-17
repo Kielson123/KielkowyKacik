@@ -94,7 +94,7 @@ div#header{
         padding-top: 55px;
         margin-top: 40px;
         width: 350px;
-        position: sticky;
+        position: fixed;
         top: 0;
         left: 0;
     }
