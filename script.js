@@ -1,9 +1,6 @@
 //http-server -c1 -p80
 
-/*function clamp(number, min, max) {
-    return Math.max(min, Math.min(number, max));
-}
-
+/*
 function addHtml() {
     let tags = document.getElementsByTagName("*")
     for (let i = 0; i < tags.length; i++) {
@@ -77,8 +74,8 @@ openPanel('informatyka')
 openPanel('inf-4')
 */
 
-function showDropdown() {
-  document.getElementById("myDropdown").classList.toggle("show");
+function showDropdown(id) {
+  document.getElementById(id).classList.toggle("show");
 }
 
 // Close the dropdown if the user clicks outside of it
