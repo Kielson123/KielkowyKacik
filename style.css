@@ -76,12 +76,12 @@ section:hover menu{
 
     .dropdown{
         font-size: small;
-        width: 130px;
+        width: 110px;
 
     }
 
     menu{
-        width: 110px;
+        width: 90px;
         padding: 10px;
     }
 }
