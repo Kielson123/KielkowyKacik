@@ -1,6 +1,6 @@
 //http-server -c1 -p80
 
-function clamp(number, min, max) {
+/*function clamp(number, min, max) {
     return Math.max(min, Math.min(number, max));
 }
 
@@ -75,3 +75,22 @@ openSideMenu()
 openTab('inf/kl4/zaddom17lis.html')
 openPanel('informatyka')
 openPanel('inf-4')
+*/
+
+function showDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.przedmiot')) {
+    var dropdowns = document.getElementsByClassName("dropdown");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
