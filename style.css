@@ -88,4 +88,9 @@ nav:hover menu{
         width: 90px;
         padding: 10px;
     }
+
+    pre[class*="language-"],
+    code[class*="language-"]{
+        font-size: 90%;
+    }
 }
