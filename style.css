@@ -70,7 +70,7 @@ nav:hover .dropdown{
 
 
 @media only screen and (hover: none) and (pointer: coarse){
-    .show {
+    /*.show {
         display: block;
-    }
+    }*/
 }
