@@ -8,23 +8,23 @@
     <h1 class="collapsible active">Sortowanie przez wybór</h1>
     <article>
         <pre class="lang-python" style="max-height: none;"><code>
-            import random
-            
-            n = int(input("Podaj wielkość zbioru: "))
+import random
 
-            A = []
-            for i in range(n):
-                A.append(random.randint(-10, 10))
-            print(A)
+n = int(input("Podaj wielkość zbioru: "))
 
-            for i in range(0, n - 1):
-                m = i
-                for j in range(i + 1, n):
-                    if A[j] < A[m]:
-                        m = j
-                A[i], A[m] = A[m], A[i]
+A = []
+for i in range(n):
+    A.append(random.randint(-10, 10))
+print(A)
 
-            print(A)
+for i in range(0, n - 1):
+    m = i
+    for j in range(i + 1, n):
+        if A[j] < A[m]:
+            m = j
+    A[i], A[m] = A[m], A[i]
+
+print(A)
         </code></pre>
         <p>Złożoność: <b style="font-size: larger;">O(n<sup>2</sup>)</b></p>
     </article>

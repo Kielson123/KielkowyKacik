@@ -8,32 +8,32 @@
     <h1 class="collapsible active">Operacje na plikach cz.2</h1>
     <article>
         <pre class="lang-python" style="max-height: none;"><code>
-            import math
+import math
 
-            def czy_pierwsza(liczba):
-                if n == 0 or n == 1:
-                    return False
-                for i in range(2, int(math.sqrt(n) + 1)):
-                    if n % i == 0:
-                        return False
-                return True
-            
-            plik = open('liczby.txt', 'r')
+def czy_pierwsza(liczba):
+    if n == 0 or n == 1:
+        return False
+    for i in range(2, int(math.sqrt(n) + 1)):
+        if n % i == 0:
+            return False
+    return True
 
-            ilosc = 0
-            
-            for linia in plik:
-                linia = linia.strip().split()
+plik = open('liczby.txt', 'r')
 
-                for liczba in linia:
-                    liczba = int(liczba)
-                    print(liczba)
-                    if czy_pierwsza(liczba):
-                        ilosc += 1
-            
-            print(f"\n\nIlosć liczb pierwszych: {ilosc}")
+ilosc = 0
 
-            plik.close()
+for linia in plik:
+    linia = linia.strip().split()
+
+    for liczba in linia:
+        liczba = int(liczba)
+        print(liczba)
+        if czy_pierwsza(liczba):
+            ilosc += 1
+
+print(f"\n\nIlosć liczb pierwszych: {ilosc}")
+
+plik.close()
         </code></pre>
     </article>
 </body>

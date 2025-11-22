@@ -10,21 +10,27 @@ function addHtml() {
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4) {
                     if (this.status == 200) {
-                        elmnt.innerHTML = this.responseText;
+                        elmnt.innerHTML = this.responseText
                     }
                     if (this.status == 404) {
-                        elmnt.innerHTML = "Page not found.";
+                        elmnt.innerHTML = "Page not found."
                     }
                     
-                    elmnt.removeAttribute("include-html");
-                    addHtml();
+                    elmnt.removeAttribute("include-html")
+                    addHtml()
                 }
             }
-            xhttp.open("GET", file, true);
-            xhttp.send();
-
-            Prism.highlightAll()
-            return;
+            xhttp.open("GET", file, true)
+            xhttp.send()
+            return
         }
     }
 }
+
+addHtml()
+setTimeout(() => {
+    let pre = document.getElementsByTagName('pre')
+    for(let i = 0; i < pre.length; i++){
+        Prism.highlightElement(pre[i])
+    }
+}, 100)

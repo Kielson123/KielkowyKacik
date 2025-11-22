@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/prism/prism.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Kielkowy Kącik</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="dropdown">Informatyka  &#9662;</button>
+            <menu>
+                <button class="dropdown_button" onclick="document.location='/inf/kl3.html'">Klasa 3</button><br>
+                <button class="dropdown_button" onclick="document.location='/inf/sortowania.html'">Sortowania</button><br>
+                <button class="dropdown_button" onclick="document.location='/inf/pierwsze.html'">L. Pierwsze</button><br>
+                <button class="dropdown_button" onclick="document.location='/inf/pliki.html'">Pliki</button>
+            </menu>
+        </nav>
+        <nav>
+            <button class="dropdown">PAI (Geruzel)  &#9662;</button>
+            <menu>
+                <p>w budowie</p>
+            </menu>
+        </nav>
+        <nav>
+            <button class="dropdown">PAI (Kubiak)  &#9662;</button>
+            <menu>
+                <p>w budowie</p>
+            </menu>
+        </nav> 
+    </header>
+
+    <main>
+        <section include-html="/inf/kl3/anagram.html"></section><br><br>
+        <section include-html="/inf/kl3/palindrom.html"></section><br><br>
+        <section include-html="/inf/kl3/zlicz_wystapien.html"></section><br><br>
+        <section include-html="/inf/kl3/prze_binarne.html"></section><br><br>
+        <section include-html="/inf/kl3/prze_liniowe.html"></section><br><br>
+        <section include-html="/inf/kl3/szyfr_kolumnowy.html"></section><br><br>
+        <section include-html="/inf/kl3/szyfr_cezara.html"></section><br><br>
+    </main>
+
+    <script src="/script.js"></script>
+    <script src="/prism/prism.js" data-manual></script>
+</body>
+</html>

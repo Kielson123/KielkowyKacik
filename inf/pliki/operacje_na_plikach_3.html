@@ -8,94 +8,94 @@
     <h1 class="collapsible active">Operacje na plikach cz.3</h1>
     <article>
         <pre class="lang-python" style="max-height: none;"><code>
-            import random
+import random
 
-            with open('zad1.txt', 'w') as plik:
-                for i in range(10):
-                    plik.write(str(random.randint(1, 16)))
-                    plik.writelines('\n')
+with open('zad1.txt', 'w') as plik:
+    for i in range(10):
+        plik.write(str(random.randint(1, 16)))
+        plik.writelines('\n')
 
-            liczby = []
-            with open('zad1.txt', 'r') as plik:
-                dane = plik.readlines()
-                for linia in dane:
-                    linia = linia.strip()
-                    if linia != '':
-                        liczby.append(int(linia))
-
-
-            print("---Liczby mniejsze od 15---")
-            for liczba in liczby:
-                if liczba < 15:
-                    print(liczba)
-
-            print("\n---Średnia---")
-            avg = 0
-            ilosc = 0
-            for liczba in liczby:
-                if liczba < 11:
-                    ilosc += 1
-                    avg += liczba
-            avg /= ilosc
-            print(round(avg, 2))
+liczby = []
+with open('zad1.txt', 'r') as plik:
+    dane = plik.readlines()
+    for linia in dane:
+        linia = linia.strip()
+        if linia != '':
+            liczby.append(int(linia))
 
 
-            with open('zad1-1.txt', 'w') as plik:
-                for liczba in liczby:
-                    if liczba % 3 != 0:
-                        plik.writelines(str(liczba))
-                        plik.writelines('\n')
+print("---Liczby mniejsze od 15---")
+for liczba in liczby:
+    if liczba < 15:
+        print(liczba)
 
-            print("\n---Niepodzielne przez 3---")
-            with open('zad1-1.txt', 'r') as plik:
-                dane = plik.readlines()
-                for linia in dane:
-                    linia = linia.strip()
-                    if linia != '':
-                        print(linia)
+print("\n---Średnia---")
+avg = 0
+ilosc = 0
+for liczba in liczby:
+    if liczba < 11:
+        ilosc += 1
+        avg += liczba
+avg /= ilosc
+print(round(avg, 2))
+
+
+with open('zad1-1.txt', 'w') as plik:
+    for liczba in liczby:
+        if liczba % 3 != 0:
+            plik.writelines(str(liczba))
+            plik.writelines('\n')
+
+print("\n---Niepodzielne przez 3---")
+with open('zad1-1.txt', 'r') as plik:
+    dane = plik.readlines()
+    for linia in dane:
+        linia = linia.strip()
+        if linia != '':
+            print(linia)
         </code></pre>
         <pre class="lang-python" style="max-height: none;"><code>
-            n = int(input("Podaj ilość studentów: "))
+n = int(input("Podaj ilość studentów: "))
 
-            with open('zad2.txt', 'w') as plik:
-                for i in range(n):
-                    nazwisko = input("Nazwisko: ")
-                    imie = input("Imie: ")
-                    wiek = input("Wiek: ")
-                    while not wiek.isdigit():
-                        wiek = input("Wiek musi być liczbą! Wiek: ")
-                    miejsce = input("Miejsce urodzenia: ")
-                    telefon = input("Telefon: ")
-                    plik.writelines(nazwisko + '$' + imie + '$' + wiek + '$' + miejsce + '$' + telefon)
-                    plik.writelines('\n')
+with open('zad2.txt', 'w') as plik:
+    for i in range(n):
+        nazwisko = input("Nazwisko: ")
+        imie = input("Imie: ")
+        wiek = input("Wiek: ")
+        while not wiek.isdigit():
+            wiek = input("Wiek musi być liczbą! Wiek: ")
+        miejsce = input("Miejsce urodzenia: ")
+        telefon = input("Telefon: ")
+        plik.writelines(nazwisko + '$' + imie + '$' + wiek + '$' + miejsce + '$' + telefon)
+        plik.writelines('\n')
 
-            osoby = []
+osoby = []
 
-            with open('zad2.txt', 'r') as plik:
-                dane = plik.readlines()
-                for linia in dane:
-                    linia = linia.strip().split('$')
-                    osoby.append({
-                        "nazwisko": linia[0],
-                        "imie": linia[1],
-                        "wiek": int(linia[2]),
-                        "miejsce": linia[3],
-                        "telefon": linia[4]
-                    })
+with open('zad2.txt', 'r') as plik:
+    dane = plik.readlines()
+    for linia in dane:
+        linia = linia.strip().split('$')
+        osoby.append({
+            "nazwisko": linia[0],
+            "imie": linia[1],
+            "wiek": int(linia[2]),
+            "miejsce": linia[3],
+            "telefon": linia[4]
+        })
 
-            for osoba in osoby:
-                print(osoba["nazwisko"] + ": " + osoba["telefon"])
+for osoba in osoby:
+    print(osoba["nazwisko"] + ": " + osoba["telefon"])
 
-            avg = 0
-            for osoba in osoby:
-                avg += osoba["wiek"]
-            avg /= len(osoby)
-            print("\nŚredni wiek studentów:", avg)
+avg = 0
+for osoba in osoby:
+    avg += osoba["wiek"]
+avg /= len(osoby)
+print("\nŚredni wiek studentów:", avg)
 
-            print("\n---Studenci na 'A'---")
-            for osoba in osoby:
-                if osoba["nazwisko"][0] == "A":
-                    print(osoba["nazwisko"], osoba["imie"])
+print("\n---Studenci na 'A'---")
+for osoba in osoby:
+    if osoba["nazwisko"][0] == "A":
+        print(osoba["nazwisko"], osoba["imie"])
         </code></pre>
     </article>
 </body>

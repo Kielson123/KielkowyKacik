@@ -8,19 +8,19 @@
     <h1 class="collapsible active">Palindrom</h1>
     <article>
         <pre class="lang-python" style="max-height: none;"><code>
-            def czy_palindrom(tekst):
-                tekst = tekst.replace(" ", "").lower()
-                dlugosc = len(tekst)
-                for i in range(0, dlugosc // 2):
-                    if tekst[i] != tekst[dlugosc - i - 1]:
-                        return False
-                return True
-            
-            tekst = input("Podaj tekst: ")
-            if czy_palindrom(tekst):
-                print(f"'{tekst}' jest palindromem.")
-            else:
-                print(f"'{tekst}' nie jest palindromem.")
+def czy_palindrom(tekst):
+    tekst = tekst.replace(" ", "").lower()
+    dlugosc = len(tekst)
+    for i in range(0, dlugosc // 2):
+        if tekst[i] != tekst[dlugosc - i - 1]:
+            return False
+    return True
+
+tekst = input("Podaj tekst: ")
+if czy_palindrom(tekst):
+    print(f"'{tekst}' jest palindromem.")
+else:
+    print(f"'{tekst}' nie jest palindromem.")
         </code></pre>
     </article>
 </body>
