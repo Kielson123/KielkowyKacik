@@ -28,9 +28,10 @@ function addHtml() {
 }
 
 addHtml()
-setTimeout(() => {
+setInterval(() => {
     let pre = document.getElementsByTagName('pre')
     for(let i = 0; i < pre.length; i++){
         Prism.highlightElement(pre[i])
     }
-}, 100)
+}, 500)
+setTimeout(clearInterval(), 10000)
