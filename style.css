@@ -25,7 +25,7 @@ main{
     width: 100%;
 }
 
-.przedmiot{
+.dropdown{
     background-color: #0F121F;
     color: white;
     font-size: large;
@@ -35,26 +35,26 @@ main{
     height: 100%;
 }
 
-nav:hover .przedmiot{
+section:hover .dropdownbnav{
     background-color: #141829;
 }
 
-.dropdown{
+menu{
     display: none;
     position: absolute;
     background-color: #191D32;
-    min-width: 160px;
+    width: 132px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     margin: 0px;
     padding: 15px;
 }
 
-nav:hover .dropdown{
+section:hover menu{
     display: block;
 }
 
-.podstrona{
+.dropdown_button{
     background-color: #191D32;
     color: white;
     border: 0px;
@@ -64,13 +64,6 @@ nav:hover .dropdown{
     width: 100%;
 }
 
-.podstrona:hover{
+.dropdown_button:hover{
     background-color: #282F44;
-}
-
-
-@media only screen and (hover: none) and (pointer: coarse){
-    /*.show {
-        display: block;
-    }*/
 }

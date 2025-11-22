@@ -9,21 +9,27 @@
 </head>
 <body>
     <header>
-        <nav>
-            <button onclick="showDropdown('inf')" class="przedmiot">Informatyka  &#9662;</button>
-            <menu class="dropdown" id="inf">
-                <button class="podstrona" onclick="document.location='./inf/kl3.html'">Klasa 3</button><br>
-                <button class="podstrona" onclick="document.location='./inf/sortowania.html'">Sortowania</button><br>
-                <button class="podstrona" onclick="document.location='./inf/pierwsze.html'">Pierwsze</button><br>
-                <button class="podstrona" onclick="document.location='./inf/pliki.html'">Pliki</button>
+        <section>
+            <button class="dropdown">Informatyka  &#9662;</button>
+            <menu>
+                <button class="dropdown_button" onclick="document.location='./inf/kl3.html'">Klasa 3</button><br>
+                <button class="dropdown_button" onclick="document.location='./inf/sortowania.html'">Sortowania</button><br>
+                <button class="dropdown_button" onclick="document.location='./inf/pierwsze.html'">L. Pierwsze</button><br>
+                <button class="dropdown_button" onclick="document.location='./inf/pliki.html'">Pliki</button>
             </menu>
-        </nav>
-        <nav>
-            <button onclick="showDropdown('pai')" class="przedmiot">PAI  &#9662;</button>
-            <menu class="dropdown" id="pai">
+        </section>
+        <section>
+            <button class="dropdown">PAI (Geruzel)  &#9662;</button>
+            <menu>
                 <p>a</p>
             </menu>
-        </nav> 
+        </section>
+        <section>
+            <button class="dropdown">PAI (Kubiak)  &#9662;</button>
+            <menu>
+                <p>a</p>
+            </menu>
+        </section> 
     </header>
 
     <main>
