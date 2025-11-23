@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lider</title>
+</head>
+<body>
+    <h1 class="collapsible active">Lider</h1>
+    <article>
+        <pre class="lang-python" style="max-height: none;"><code>
+def SzukajLidera(A):
+    n = len(A)
+    for i in range(n):
+        ile = 0
+        for j in range(n):
+            if A[j] == A[i]:
+                ile += 1
+        if ile > n % 2:
+            return A[j]
+    return -1
+
+
+A = [1, 2, 3, 1, 5, 6, 2, 1, 1, 1, 1]
+lider = SzukajLidera(A)
+if lider != -1:
+    print("Lider:", lider)
+else:
+    print("Nie istnieje lider w danym zbiorze")
+        </code></pre>
+    </article>
+</body>
+</html>
