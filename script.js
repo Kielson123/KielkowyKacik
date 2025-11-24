@@ -27,13 +27,23 @@ function addHtml() {
     }
 }
 
+function copyTextToClipboard(id){
+    let text = document.getElementById(id).innerText
+    navigator.clipboard.writeText(text.trim())
+}
+
 addHtml()
 let interval = setInterval(() => {
     let pre = document.getElementsByTagName('pre')
     for(let i = 0; i < pre.length; i++){
+        let section = pre[i].parentNode.parentNode
+        if(section.querySelector('title')){
+            section.querySelector('title').remove()
+            section.querySelectorAll('meta').forEach((value) => value.remove())
+        }
         if(!pre[i].querySelector('span')){
             Prism.highlightElement(pre[i])
         }
     }
 }, 500)
-setTimeout(() => clearInterval(interval), 10000)
+setTimeout(() => clearInterval(interval), 60000)
