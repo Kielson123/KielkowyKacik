@@ -15,7 +15,7 @@ def SzukajLidera(A):
         for j in range(n):
             if A[j] == A[i]:
                 ile += 1
-        if ile > n % 2:
+        if ile > n // 2:
             return A[i]
     return -1
 
