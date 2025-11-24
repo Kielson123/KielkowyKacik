@@ -28,10 +28,12 @@ function addHtml() {
 }
 
 addHtml()
-setInterval(() => {
+let interval = setInterval(() => {
     let pre = document.getElementsByTagName('pre')
     for(let i = 0; i < pre.length; i++){
-        Prism.highlightElement(pre[i])
+        if(!pre[i].querySelector('span')){
+            Prism.highlightElement(pre[i])
+        }
     }
 }, 500)
-setTimeout(clearInterval(), 10000)
+setTimeout(() => clearInterval(interval), 10000)
