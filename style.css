@@ -63,8 +63,8 @@ main{
     height: 100%;
 }
 
-nav:hover .dropdownbnav{
-    background-color: #141829;
+nav:hover .dropdown{
+    background-color: #111425;
 }
 
 menu{
