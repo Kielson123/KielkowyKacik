@@ -1,13 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lider (2)</title>
-</head>
-<body>
-    <h1 class="collapsible active">Lider (2)</h1>
-    <article>
-        <pre class="lang-python" style="max-height: none;" id="lider_2"><code>
 import random
 
 def sortuj(A):
@@ -43,8 +33,3 @@ if lider != -1:
     print("Lider:", lider)
 else:
     print("Nie istnieje lider w danym zbiorze")
-        </code></pre>
-        <a href="lider/lider_2.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
-    </article>
-</body>
-</html>

@@ -1,13 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lider (3)</title>
-</head>
-<body>
-    <h1 class="collapsible active">Lider (3)</h1>
-    <article>
-        <pre class="lang-python" style="max-height: none;" id="lider_3"><code>
 import random
 
 def szukaj_lidera(A):
@@ -47,8 +37,3 @@ if lider != -1:
     print("Lider:", lider)
 else:
     print("Nie istnieje lider w danym zbiorze")
-        </code></pre>
-        <a href="lider/lider_3.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
-    </article>
-</body>
-</html>
