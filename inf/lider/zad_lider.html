@@ -37,9 +37,11 @@ def dec(podstawa, liczba):
         wartosc  = (wartosc * podstawa) + ord(liczba[i]) - 48
     return wartosc
 
-
-min_wartosc, min_liczba, min_podstawa = 2**128, 2**128, 2**128
+# ten sposób nie jest 'optymalny', ale
+# nie chce mi sie i dziala
+min_wartosc, min_liczba, min_podstawa = 2**128, 2**128, 2**128  
 max_wartosc, max_liczba, max_podstawa = -(2**128), -(2**128), -(2**128)
+
 
 plik = open('zad_lider.txt', 'r')
 for linia in plik:
