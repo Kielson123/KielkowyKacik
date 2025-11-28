@@ -7,10 +7,74 @@
 <body>
     <h1 class="collapsible active">Zadanie z liderem</h1>
     <article>
+        <h4>Zad.1.1</h4>
         <pre class="lang-python" style="max-height: none;" id="zad_lider"><code>
+def dec(podstawa, liczba):
+    podstawa = int(podstawa)
+    liczba = str(liczba)
+    wartosc  = 0
+    for i in range(len(liczba)):
+        wartosc  = (wartosc  * podstawa) + ord(liczba[i]) - 48
+    return wartosc 
 
+
+plik = open('zad_lider.txt', 'r')
+suma = 0
+for linia in plik:
+    linia = linia.strip().split(' ')
+    podstawa = linia[0]
+    liczba = linia[1]
+    suma += dec(podstawa, liczba)
+print(suma)
         </code></pre>
-        <a href="lider/zad_lider.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+        <h4>Zad.1.2</h4>
+        <pre class="lang-python" style="max-height: none;" id="zad_lider"><code>
+def dec(podstawa, liczba):
+    podstawa = int(podstawa)
+    liczba = str(liczba)
+    wartosc  = 0
+    for i in range(len(liczba)):
+        wartosc  = (wartosc * podstawa) + ord(liczba[i]) - 48
+    return wartosc
+
+
+min_wartosc, min_liczba, min_podstawa = 2**128, 2**128, 2**128
+max_wartosc, max_liczba, max_podstawa = -(2**128), -(2**128), -(2**128)
+
+plik = open('zad_lider.txt', 'r')
+for linia in plik:
+    linia = linia.strip().split(' ')
+
+    podstawa = linia[0]
+    liczba = linia[1]
+    wartosc = dec(podstawa, liczba)
+
+
+    if wartosc > max_wartosc:
+        max_wartosc = wartosc
+        max_podstawa = podstawa
+        max_liczba = liczba
+        print(linia)
+
+    if wartosc < min_wartosc:
+        min_wartosc = wartosc
+        min_podstawa = podstawa
+        min_liczba = liczba
+        print(linia)
+
+
+print(f"Minimum:  podstawa = {min_podstawa}, liczba = '{min_liczba}'")
+print(f"Maksimum: podstawa = {max_podstawa}, liczba = '{max_liczba}'")
+        </code></pre>
+        <h4>Plik tekstowy</h4>
+        <pre class="lang-python" style="max-height: none;" id="zad_lider"><code>
+5 2341
+2 1111111100000000
+9 3333
+6 550012
+4 3333
+        </code></pre>
+        <a href="lider/zad_lider.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>
 </html>
