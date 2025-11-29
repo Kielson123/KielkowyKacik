@@ -1,13 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anagram</title>
-</head>
-<body>
-    <h1>Anagram</h1>
-    <article>
-        <pre class="lang-python"><code>
 def czy_anagram(a, b):
     dl1 = len(a)
     dl2 = len(b)
@@ -32,8 +22,3 @@ if czy_anagram(wyraz1, wyraz2):
     print("Podane wyrazy są anagramami.")
 else:
     print("Podane wyrazy nie są anagramami.")
-        </code></pre>
-        <a href="kl3/projekty/anagram.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
-    </article>
-</body>
-</html>

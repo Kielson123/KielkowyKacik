@@ -1,13 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Szyfr Cezara</title>
-</head>
-<body>
-    <h1>Szyfr Cezara</h1>
-    <article>
-        <pre class="lang-python"><code>
 tekst = input("Podaj tekst do zaszyfrowania: ")
 klucz = int(input("Podaj klucz: "))
 
@@ -42,8 +32,3 @@ def szyfr_ASCII():
         szyfr += chr(kod)
     
     print(szyfr)
-        </code></pre>
-        <a href="kl3/projekty/szyfr_cezara.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
-    </article>
-</body>
-</html>
