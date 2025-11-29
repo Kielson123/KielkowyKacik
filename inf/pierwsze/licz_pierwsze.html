@@ -7,14 +7,14 @@
 <body>
     <h1>Liczby pierwsze</h1>
     <article>
-        <pre class="lang-python" id="licz_pierwsze"><code>
+        <pre class="lang-python"><code>
 import math
 
 def czy_pierwsza(liczba):
-    if n == 0 or n == 1:
+    if liczba == 0 or liczba == 1:
         return False
-    for i in range(2, int(math.sqrt(n) + 1)):
-        if n % i == 0:
+    for i in range(2, int(math.sqrt(liczba) + 1)):
+        if liczba % i == 0:
             return False
     return True
 
@@ -25,6 +25,7 @@ if czy_pierwsza(n):
 else:
     print(f"Liczba {n} nie jest liczbą pierwszą")
         </code></pre>
+        <a href="pierwsze/projekty/licz_pierwsze.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>
 </html>

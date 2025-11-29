@@ -1,13 +1,3 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sortowanie przez scalanie</title>
-</head>
-<body>
-    <h1>Sortowanie przez scalanie</h1>
-    <article>
-        <pre class="lang-python"><code>
 import random
 
 def sortowanie_scalanie(tablica, pocz, kon):
@@ -64,10 +54,3 @@ print(A)
 
 sortowanie_scalanie(A, 0, len(A) - 1)
 print(A)
-        </code></pre>
-        <p>Złożoność: <b style="font-size: larger;">O(n ⋅ log n)</b></p>
-        <p>&nbsp;&nbsp;&nbsp;n - liczba elementów w tablicy</p>
-        <a href="sortowania/projekty/sort_scalanie.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
-    </article>
-</body>
-</html>

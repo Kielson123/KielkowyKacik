@@ -7,14 +7,14 @@
 <body>
     <h1>Operacje na plikach cz.2</h1>
     <article>
-        <pre class="lang-python" id="pliki_2"><code>
+        <pre class="lang-python"><code>
 import math
 
 def czy_pierwsza(liczba):
-    if n == 0 or n == 1:
+    if liczba == 0 or liczba == 1:
         return False
-    for i in range(2, int(math.sqrt(n) + 1)):
-        if n % i == 0:
+    for i in range(2, int(math.sqrt(liczba) + 1)):
+        if liczba % i == 0:
             return False
     return True
 
@@ -35,6 +35,15 @@ print(f"\n\nIlosć liczb pierwszych: {ilosc}")
 
 plik.close()
         </code></pre>
+        <h4>Plik tekstowy</h4>
+        <pre class="lang-python"><code>
+11 1
+7 9
+24 6
+8 13
+16 0
+        </code></pre>
+        <a href="pliki/projekty/pliki_2.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>
 </html>
