@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zegar</title>
+</head>
+<body>
+    <h1>Zegar</h1>
+    <article>
+        <h4>Html</h4>
+        <script type="text/plain" class="lang-markup">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Zegar</title>
+            </head>
+            <body onload="ustawGodzine();">
+                <main id="zegar"></main>
+            
+                <script src="script.js">&lt;/script>
+            </body>
+            </html>
+        </script>
+        <h4>JavaScript</h4>
+        <script type="text/plain" class="lang-js">
+            function ustawGodzine(){
+            	let data = new Date()
+
+            	let dzien_tyg = "poniedziałek"
+            	switch(data.getDay()){
+            		case 1:
+            			dzien_tyg = "poniedziałek"
+            			break
+            		case 2:
+            			dzien_tyg = "wtorek"
+            			break
+            		case 3:
+            			dzien_tyg = "środa"
+            			break
+            		case 4:
+            			dzien_tyg = "czwartek"
+            			break
+            		case 5:
+            			dzien_tyg = "piątek"
+            			break
+            		case 6:
+            			dzien_tyg = "sobota"
+            			break
+            		case 7:
+            			dzien_tyg = "niedziela"
+            			break
+            	}
+            
+            	let miesiac = "stycznia"
+            	switch(data.getMonth()){
+            		case 0:
+            			miesiac = "stycznia"
+            			break
+            		case 1:
+            			miesiac = "lutego"
+            			break
+            		case 2:
+            			miesiac = "marca"
+            			break
+            		case 3:
+            			miesiac = "kwietnia"
+            			break
+            		case 4:
+            			miesiac = "maja"
+            			break
+            		case 5:
+            			miesiac = "czerwca"
+            			break
+            		case 6:
+            			miesiac = "lipca"
+            			break
+            		case 7:
+            			miesiac = "sierpnia"
+            			break
+            		case 8:
+            			miesiac = "września"
+            			break
+            		case 9:
+            			miesiac = "października"
+            			break
+            		case 10:
+            			miesiac = "listopada"
+            			break
+            		case 11:
+            			miesiac = "grudnia"
+            			break
+            	}
+            
+            	let godzina = data.getHours() < 10 ? "0" + data.getHours() : data.getHours()
+            
+            	let minuta = data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes()
+            
+            	document.getElementById("zegar").innerHTML = 
+            		`Dziś jest ${dzien_tyg},<br>${data.getDate()} ${miesiac} ${data.getFullYear()}r.<br>godz. ${godzina}:${minuta}`
+            
+            	setTimeout(ustawGodzine(), 1000)
+            }
+        </script>
+        <a href="kl4/projekty/zegar.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
