@@ -34,7 +34,7 @@ function copyTextToClipboard(id){
 
 addHtml()
 let interval = setInterval(() => {
-    let pre = document.getElementsByTagName('pre')
+    let pre = document.querySelectorAll('[class^="lang-"]')
     for(let i = 0; i < pre.length; i++){
         let section = pre[i].parentNode.parentNode
         if(section.querySelector('title')){

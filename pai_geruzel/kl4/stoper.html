@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoper</title>
+</head>
+<body>
+    <h1>Stoper</h1>
+    <article>
+        <h4>Html</h4>
+        <script type="text/plain" class="lang-markup">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #czas{
+            font-size: 100px;
+        }
+        
+        #start, #stop, #reset{
+            width: 100px;
+            height: 50px;
+            margin: 20px 20px 0px 0px;
+            font-size: 20px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="czas">
+        00.00
+    </div>
+    <input type="button" value="Start" id="start" onclick="start()">
+    <input type="button" value="Stop" id="stop" onclick="stop()" hidden>
+    <input type="button" value="Reset" id="reset" onclick="reset()">
+
+    <script src="script.js">&lt;/script>
+</body>
+</html>
+        </script>
+        <h4>JavaScript</h4>
+        <pre class="lang-js"><code>
+let czas = document.getElementById('czas')
+let start_btn = document.getElementById('start')
+let stop_btn = document.getElementById('stop')
+let reset_btn = document.getElementById('reset')
+
+let interval
+
+function start(){
+    interval = setInterval(() => {
+        let stoper = parseFloat(czas.innerText)
+        let time = parseFloat(stoper + 0.01).toFixed(2)
+        czas.innerText = time.length > 4 ? time : '0' + time
+    }, 10)
+    start_btn.setAttribute('hidden', true)
+    stop_btn.removeAttribute('hidden')
+}
+
+function stop(){
+    clearInterval(interval)
+    stop_btn.setAttribute('hidden', true)
+    start_btn.removeAttribute('hidden')
+}
+
+function reset(){
+    clearInterval(interval)
+    stop_btn.setAttribute('hidden', true)
+    start_btn.removeAttribute('hidden')
+    czas.innerText = '00.00'
+}
+        </code></pre>
+        <a href="kl4/projekty/stoper.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
