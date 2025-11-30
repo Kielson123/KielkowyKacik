@@ -7,42 +7,42 @@
 <body>
     <h1>Zapisywanie do pliku</h1>
     <article>
-        <pre class="lang-python"><code>
-with open('zad2.txt', 'r') as plik:
-    dane = plik.read()
-print(dane, '\n')
-
-with open('zad2.txt', 'r') as plik:
-    dane_lista = plik.readlines()
-    for i in range(len(dane_lista)):
-        dane_lista[i] = dane_lista[i].strip()
-        dane_lista[i] = dane_lista[i].split()
-print(dane_lista, '\n')
-
-for x in dane_lista:
-    print(x)
-
-ile = 0
-for i in dane_lista:
-    if len(i) > 1:
-        if len(i[0]) == int(i[1]):
-            ile += 1
-
-wynik = f"\nWynik: {ile}"
-print(wynik)
-
-with open('zad2.txt', 'a') as plik:
-    plik.writelines(wynik)
-        </code></pre>
+        <script type="text/plain" class="lang-python">
+            with open('zad2.txt', 'r') as plik:
+                dane = plik.read()
+            print(dane, '\n')
+                    
+            with open('zad2.txt', 'r') as plik:
+                dane_lista = plik.readlines()
+                for i in range(len(dane_lista)):
+                    dane_lista[i] = dane_lista[i].strip()
+                    dane_lista[i] = dane_lista[i].split()
+            print(dane_lista, '\n')
+                    
+            for x in dane_lista:
+                print(x)
+                    
+            ile = 0
+            for i in dane_lista:
+                if len(i) > 1:
+                    if len(i[0]) == int(i[1]):
+                        ile += 1
+                    
+            wynik = f"\nWynik: {ile}"
+            print(wynik)
+                    
+            with open('zad2.txt', 'a') as plik:
+                plik.writelines(wynik)
+        </script>
         <h4>Plik tekstowy</h4>
-        <pre class="lang-python"><code>
-xd 2
-pilot 4
-mapa 3
-mysz 4
-ul 5
-monitor 6
-        </code></pre>
+        <script type="text/plain" class="lang-markup">
+            xd 2
+            pilot 4
+            mapa 3
+            mysz 4
+            ul 5
+            monitor 6
+        </script>
         <a href="pliki/projekty/zapisywanie.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>

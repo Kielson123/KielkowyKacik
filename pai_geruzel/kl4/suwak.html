@@ -9,54 +9,54 @@
     <article>
         <h4>Html</h4>
         <script type="text/plain" class="lang-markup">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suwak</title>
-    <style>
-        div{
-            width: 400px;
-            height: 400px;
-        }
-    </style>
-</head>
-<body>
-    <div id="box"></div>
-    <input type="range" id="suwak1" min="0" max="255" value="255" oninput="kolor()">
-    <input type="range" id="suwak2" min="0" max="255" value="127" oninput="kolor()">
-    <input type="range" id="suwak3" min="0" max="255" value="15" oninput="kolor()">
-
-    <br><br><br>
-    <input type="range" id="suwak4" min="0" max="800" value="500" oninput="rozmiar()">
-
-    <script src="script.js"></script>
-</body>
-</html>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Suwak</title>
+                <style>
+                    div{
+                        width: 400px;
+                        height: 400px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="box"></div>
+                <input type="range" id="suwak1" min="0" max="255" value="255" oninput="kolor()">
+                <input type="range" id="suwak2" min="0" max="255" value="127" oninput="kolor()">
+                <input type="range" id="suwak3" min="0" max="255" value="15" oninput="kolor()">
+            
+                <br><br><br>
+                <input type="range" id="suwak4" min="0" max="800" value="500" oninput="rozmiar()">
+            
+                <script src="script.js">&lt;/script>
+            </body>
+            </html>
         </script>
         <h4>JavaScript</h4>
-        <pre class="lang-js"><code>
-function kolor(){
-    let suwak1 = document.getElementById('suwak1').value
-    let suwak2 = document.getElementById('suwak2').value
-    let suwak3 = document.getElementById('suwak3').value
-    let box = document.getElementById('box')
+        <script type="text/plain" class="lang-js">
+            function kolor(){
+                let suwak1 = document.getElementById('suwak1').value
+                let suwak2 = document.getElementById('suwak2').value
+                let suwak3 = document.getElementById('suwak3').value
+                let box = document.getElementById('box')
+            
+                box.style.backgroundColor = `rgb(${suwak1}, ${suwak2}, ${suwak3})`
+            }
 
-    box.style.backgroundColor = `rgb(${suwak1}, ${suwak2}, ${suwak3})`
-}
+            kolor()
+            rozmiar()
 
-kolor()
-rozmiar()
-
-function rozmiar(){
-    let suwak4 = document.getElementById('suwak4').value
-    let box = document.getElementById('box')
-
-    box.style.width = `${suwak4}px`
-    box.style.height = `${suwak4}px`
-}
-        </code></pre>
+            function rozmiar(){
+                let suwak4 = document.getElementById('suwak4').value
+                let box = document.getElementById('box')
+            
+                box.style.width = `${suwak4}px`
+                box.style.height = `${suwak4}px`
+            }
+        </script>
         <a href="kl4/projekty/suwak.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>

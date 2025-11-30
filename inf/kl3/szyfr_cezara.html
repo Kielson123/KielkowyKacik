@@ -7,42 +7,42 @@
 <body>
     <h1>Szyfr Cezara</h1>
     <article>
-        <pre class="lang-python"><code>
-tekst = input("Podaj tekst do zaszyfrowania: ")
-klucz = int(input("Podaj klucz: "))
+        <script type="text/plain" class="lang-python">
+            tekst = input("Podaj tekst do zaszyfrowania: ")
+            klucz = int(input("Podaj klucz: "))
 
-def szyfr_iter():
-    alfabet = "abcdefghijklmnopqrstuvwxyz"
-    dlugosc_tekstu = len(tekst)
-    dlugosc_alfabetu = len(alfabet)
-    szyfr = ""
+            def szyfr_iter():
+                alfabet = "abcdefghijklmnopqrstuvwxyz"
+                dlugosc_tekstu = len(tekst)
+                dlugosc_alfabetu = len(alfabet)
+                szyfr = ""
 
-    for i in range(dlugosc_tekstu):
-        for j in range(dlugosc_alfabetu):
+                for i in range(dlugosc_tekstu):
+                    for j in range(dlugosc_alfabetu):
 
-            if tekst[i].islower():
-                alfabet = alfabet.lower()
-            else:
-                alfabet = alfabet.upper()
-                    
-            if tekst[i] == alfabet[j]:
-                szyfr += alfabet[(j + klucz) % dlugosc_alfabetu]
-    
-    print(szyfr)
+                        if tekst[i].islower():
+                            alfabet = alfabet.lower()
+                        else:
+                            alfabet = alfabet.upper()
+
+                        if tekst[i] == alfabet[j]:
+                            szyfr += alfabet[(j + klucz) % dlugosc_alfabetu]
+
+                print(szyfr)
 
 
-def szyfr_ASCII():
-    szyfr = ""
+            def szyfr_ASCII():
+                szyfr = ""
 
-    for znak in tekst:
-        ostatnia_litera = 'z' if znak.islower() else 'Z'
-        kod = ord(znak) + klucz
-        if kod > ord(ostatnia_litera):
-            kod -= 26
-        szyfr += chr(kod)
-    
-    print(szyfr)
-        </code></pre>
+                for znak in tekst:
+                    ostatnia_litera = 'z' if znak.islower() else 'Z'
+                    kod = ord(znak) + klucz
+                    if kod > ord(ostatnia_litera):
+                        kod -= 26
+                    szyfr += chr(kod)
+
+                print(szyfr)
+        </script>
         <a href="kl3/projekty/szyfr_cezara.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>

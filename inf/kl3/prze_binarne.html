@@ -7,32 +7,32 @@
 <body>
     <h1>Przeszukiwanie binarne</h1>
     <article>
-        <pre class="lang-python"><code>
-import random
-
-n = int(input("Podaj wielkość zbioru: "))
-x = int(input("Podaj szukaną: "))
-
-A = []
-for i in range(n):
-    A.append(random.randint(-10, 10))
-A.sort()
-print(A)
-
-lewy = 0
-prawy = n - 1
-while lewy < prawy:
-    srodek = (lewy + prawy) // 2
-    if A[srodek] < x:
-        lewy = srodek + 1
-    else:
-        prawy = srodek
-
-if A[lewy] == x:
-    print(f"Znaleziono {x} o indeksie {lewy}")
-else:
-    print(f"Nie znaleziono {x}")
-        </code></pre>
+        <script type="text/plain" class="lang-python">
+            import random
+                    
+            n = int(input("Podaj wielkość zbioru: "))
+            x = int(input("Podaj szukaną: "))
+                    
+            A = []
+            for i in range(n):
+                A.append(random.randint(-10, 10))
+            A.sort()
+            print(A)
+                    
+            lewy = 0
+            prawy = n - 1
+            while lewy < prawy:
+                srodek = (lewy + prawy) // 2
+                if A[srodek] < x:
+                    lewy = srodek + 1
+                else:
+                    prawy = srodek
+                    
+            if A[lewy] == x:
+                print(f"Znaleziono {x} o indeksie {lewy}")
+            else:
+                print(f"Nie znaleziono {x}")
+        </script>
         <p>Złożoność: <b style="font-size: larger;">O(log n)</b></p>
         <a href="kl3/projekty/prze_binarne.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>

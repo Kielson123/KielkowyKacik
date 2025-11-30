@@ -7,25 +7,25 @@
 <body>
     <h1>Przeszukiwanie liniowe</h1>
     <article>
-        <pre class="lang-python"><code>
-import random
-
-n = int(input("Podaj wielkość zbioru: "))
-x = int(input("Podaj szukaną: "))
-komunikat = f"Nie znaleziono {x}"
-
-A = []
-for i in range(n):
-    A.append(random.randint(-10, 10))
-print(A)
-
-for i in range(n):
-    if A[i] == x:
-        komunikat = f"Znaleziono {x} o indeksie {i}"
-        break
-
-print(komunikat)
-        </code></pre>
+        <script type="text/plain" class="lang-python">
+            import random
+                    
+            n = int(input("Podaj wielkość zbioru: "))
+            x = int(input("Podaj szukaną: "))
+            komunikat = f"Nie znaleziono {x}"
+                    
+            A = []
+            for i in range(n):
+                A.append(random.randint(-10, 10))
+            print(A)
+                    
+            for i in range(n):
+                if A[i] == x:
+                    komunikat = f"Znaleziono {x} o indeksie {i}"
+                    break
+                    
+            print(komunikat)
+        </script>
         <p>Złożoność: <b style="font-size: larger;">O(n)</b></p>
         <a href="kl3/projekty/prze_liniowe.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>

@@ -7,32 +7,32 @@
 <body>
     <h1>Anagram</h1>
     <article>
-        <pre class="lang-python"><code>
-def czy_anagram(a, b):
-    dl1 = len(a)
-    dl2 = len(b)
-    if dl1 != dl2:
-        return False
-    
-    licz = [0] * 127
-    for i in range(dl1):
-        licz[ord(a[i])] += 1
-    for i in range(dl1):
-        licz[ord(b[i])] -= 1
-    
-    for i in range(127):
-        if licz[i] != 0:
-            return False
-    return True
-
-wyraz1 = input("Podaj pierwszy wyraz: ")
-wyraz2 = input("Podaj drugi wyraz: ")
-
-if czy_anagram(wyraz1, wyraz2):
-    print("Podane wyrazy są anagramami.")
-else:
-    print("Podane wyrazy nie są anagramami.")
-        </code></pre>
+        <script type="text/plain" class="lang-python">
+            def czy_anagram(a, b):
+                dl1 = len(a)
+                dl2 = len(b)
+                if dl1 != dl2:
+                    return False
+                    
+                licz = [0] * 127
+                for i in range(dl1):
+                    licz[ord(a[i])] += 1
+                for i in range(dl1):
+                    licz[ord(b[i])] -= 1
+                    
+                for i in range(127):
+                    if licz[i] != 0:
+                        return False
+                return True
+                    
+            wyraz1 = input("Podaj pierwszy wyraz: ")
+            wyraz2 = input("Podaj drugi wyraz: ")
+                    
+            if czy_anagram(wyraz1, wyraz2):
+                print("Podane wyrazy są anagramami.")
+            else:
+                print("Podane wyrazy nie są anagramami.")
+        </script>
         <a href="kl3/projekty/anagram.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>

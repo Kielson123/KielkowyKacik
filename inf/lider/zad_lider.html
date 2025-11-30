@@ -8,74 +8,74 @@
     <h1>Zadanie z liderem</h1>
     <article>
         <h4>Zad.1.1</h4>
-        <pre class="lang-python"><code>
-def dec(podstawa, liczba):
-    podstawa = int(podstawa)
-    liczba = str(liczba)
-    wartosc  = 0
-    for i in range(len(liczba)):
-        wartosc  = (wartosc  * podstawa) + ord(liczba[i]) - 48
-    return wartosc 
+        <script type="text/plain" class="lang-python">
+            def dec(podstawa, liczba):
+                podstawa = int(podstawa)
+                liczba = str(liczba)
+                wartosc  = 0
+                for i in range(len(liczba)):
+                    wartosc  = (wartosc  * podstawa) + ord(liczba[i]) - 48
+                return wartosc 
 
 
-plik = open('zad_lider.txt', 'r')
-suma = 0
-for linia in plik:
-    linia = linia.strip().split(' ')
-    podstawa = linia[0]
-    liczba = linia[1]
-    suma += dec(podstawa, liczba)
-print(suma)
-        </code></pre>
+            plik = open('zad_lider.txt', 'r')
+            suma = 0
+            for linia in plik:
+                linia = linia.strip().split(' ')
+                podstawa = linia[0]
+                liczba = linia[1]
+                suma += dec(podstawa, liczba)
+            print(suma)
+        </script>
         <h4>Zad.1.2</h4>
-        <pre class="lang-python"><code>
-def dec(podstawa, liczba):
-    podstawa = int(podstawa)
-    liczba = str(liczba)
-    wartosc  = 0
-    for i in range(len(liczba)):
-        wartosc  = (wartosc * podstawa) + ord(liczba[i]) - 48
-    return wartosc
+        <script type="text/plain" class="lang-python">
+            def dec(podstawa, liczba):
+                podstawa = int(podstawa)
+                liczba = str(liczba)
+                wartosc  = 0
+                for i in range(len(liczba)):
+                    wartosc  = (wartosc * podstawa) + ord(liczba[i]) - 48
+                return wartosc
 
-# ten sposób nie jest 'optymalny', ale
-# dziala i nie chce mi sie
-min_wartosc, min_liczba, min_podstawa = 2**64, 2**64, 2**64  
-max_wartosc, max_liczba, max_podstawa = -(2**64), -(2**64), -(2**64)
-
-
-plik = open('zad_lider.txt', 'r')
-for linia in plik:
-    linia = linia.strip().split(' ')
-
-    podstawa = linia[0]
-    liczba = linia[1]
-    wartosc = dec(podstawa, liczba)
+            # ten sposób nie jest 'optymalny', ale
+            # dziala i nie chce mi sie
+            min_wartosc, min_liczba, min_podstawa = 2**64, 2**64, 2**64  
+            max_wartosc, max_liczba, max_podstawa = -(2**64), -(2**64), -(2**64)
 
 
-    if wartosc > max_wartosc:
-        max_wartosc = wartosc
-        max_podstawa = podstawa
-        max_liczba = liczba
-        print(linia)
+            plik = open('zad_lider.txt', 'r')
+            for linia in plik:
+                linia = linia.strip().split(' ')
 
-    if wartosc < min_wartosc:
-        min_wartosc = wartosc
-        min_podstawa = podstawa
-        min_liczba = liczba
-        print(linia)
+                podstawa = linia[0]
+                liczba = linia[1]
+                wartosc = dec(podstawa, liczba)
 
 
-print(f"Minimum:  podstawa = {min_podstawa}, liczba = '{min_liczba}'")
-print(f"Maksimum: podstawa = {max_podstawa}, liczba = '{max_liczba}'")
-        </code></pre>
+                if wartosc > max_wartosc:
+                    max_wartosc = wartosc
+                    max_podstawa = podstawa
+                    max_liczba = liczba
+                    print(linia)
+
+                if wartosc < min_wartosc:
+                    min_wartosc = wartosc
+                    min_podstawa = podstawa
+                    min_liczba = liczba
+                    print(linia)
+
+
+            print(f"Minimum:  podstawa = {min_podstawa}, liczba = '{min_liczba}'")
+            print(f"Maksimum: podstawa = {max_podstawa}, liczba = '{max_liczba}'")
+        </script>
         <h4>Plik tekstowy</h4>
-        <pre class="lang-python"><code>
-5 2341
-2 1111111100000000
-9 3333
-6 550012
-4 3333
-        </code></pre>
+        <script type="text/plain" class="lang-markup">
+            5 2341
+            2 1111111100000000
+            9 3333
+            6 550012
+            4 3333
+        </script>
         <a href="lider/projekty/zad_lider.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
     </article>
 </body>
