@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matura 2018 (zad. 5)</title>
+</head>
+<body>
+    <h1>Matura 2018 (zad. 5)</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            def czy_palindrom(tekst):
+                tekst = tekst.replace(" ", "").lower()
+                dlugosc = len(tekst)
+                for i in range(0, dlugosc // 2):
+                    if tekst[i] != tekst[dlugosc - i - 1]:
+                        return False
+                return True
+
+
+            najw_parz = 0
+            liczby_pal = []
+            liczby_suma_30 = []
+            suma_wszyst = 0
+
+            with open('liczby.txt', 'r') as plik:
+                for linia in plik.readlines():
+                    linia = linia.strip()
+
+                    if int(linia) % 2 == 0 and int(linia) > najw_parz:
+                        najw_parz = int(linia)
+
+                    if czy_palindrom(linia):
+                        liczby_pal.append(linia)
+
+                    suma_cyfr = 0
+                    for cyfra in linia:
+                        suma_cyfr += int(cyfra)
+                    suma_wszyst += suma_cyfr
+
+                    if suma_cyfr > 30:
+                        liczby_suma_30.append(linia)
+
+
+
+            with open('wyniki5.txt', 'w') as plik:
+                plik.writelines(f"Najwieksza liczba parzysta: {najw_parz}\n")
+                plik.writelines(f"Liczby palindromiczne: \n\t{'\n\t'.join(liczby_pal)}\n")
+                plik.writelines(f"Liczby z suma cyfr wieksza od 30: \n\t{'\n\t'.join(liczby_suma_30)}\n")
+                plik.writelines(f"Suma wszystkich cyfr: {suma_wszyst}")
+        </script>
+        <a href="pliki/projekty/matura_2018_zad5.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>

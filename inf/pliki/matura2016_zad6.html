@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matura 2016 (zad. 6)</title>
+</head>
+<body>
+    <h1>Matura 2016 (zad. 6)</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            import math
+                    
+            def czy_pierwsza(liczba):
+                if liczba == 0 or liczba == 1:
+                    return False
+                for i in range(2, int(math.sqrt(liczba) + 1)):
+                    if liczba % i == 0:
+                        return False
+                return True
+                    
+                    
+            ilosc_pierw = 0
+            najm_pierw = 30000
+            najw_pierw = 0
+            liczby_bliz = []
+                    
+            with open('dane6.txt', 'r') as plik:
+                poprzednia_liczba = None
+                for linia in plik.readlines():
+                    liczba = int(linia.strip())
+                    
+                    if czy_pierwsza(liczba):
+                        ilosc_pierw += 1
+                    
+                        if liczba < najm_pierw:
+                            najm_pierw = liczba
+                        if liczba > najw_pierw:
+                            najw_pierw = liczba
+                    
+                        if poprzednia_liczba and czy_pierwsza(poprzednia_liczba):
+                            if abs(liczba - poprzednia_liczba) == 2:
+                                liczby_bliz.append(f"{poprzednia_liczba} i {liczba}")
+                    
+                    poprzednia_liczba = liczba
+                    
+                    
+            with open('wyniki_6.txt', 'w') as plik:
+                plik.writelines(f"Ilosc liczb pierwszych: {ilosc_pierw}\n")
+                plik.writelines(f"Najmniejsza liczba pierwsza: {najm_pierw}\n")
+                plik.writelines(f"Najwieksza liczba pierwsza: {najw_pierw}\n")
+                plik.writelines(f"Ilosc par liczb blizniaczych: {len(liczby_bliz)}\n")
+                plik.writelines(f"Pary liczb blizniaczych: \n\t{'\n\t'.join(liczby_bliz)}")
+        </script>
+        <a href="pliki/projekty/matura_2016_zad6.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>

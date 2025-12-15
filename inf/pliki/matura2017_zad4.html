@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matura 2017 (zad. 4)</title>
+</head>
+<body>
+    <h1>Matura 2017 (zad. 4)</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            def znajdz_nwd(a, b, c):
+                najm = a
+                if najm > b: najm = b
+                if najm > c: najm = c
+
+                nwd = 0
+                for dziel in range(1, najm + 1):
+                    if a % dziel == 0 and b % dziel == 0 and c % dziel == 0:
+                        nwd = dziel
+                return nwd
+
+
+            ilosc_rosnacych = 0
+            suma_dzielnikow = 0
+            ilosc_sum_35 = 0
+            najw_suma_cyfr = 0
+            ilosc_najw_sum = 0
+
+            with open('liczby.txt', 'r') as plik:
+                dane = plik.readlines()
+                for linia in dane:
+                    linia = linia.strip().split(' ')
+
+                    if int(linia[0]) < int(linia[1]) < int(linia[2]):
+                        ilosc_rosnacych += 1
+
+                    suma_dzielnikow += znajdz_nwd(int(linia[0]), int(linia[1]), int(linia[2]))
+
+                    suma_cyfr = 0
+                    for liczba in linia:
+                        for cyfra in liczba:
+                            suma_cyfr += int(cyfra)
+                            if suma_cyfr > najw_suma_cyfr:
+                                najw_suma_cyfr = suma_cyfr
+                                ilosc_najw_sum = 0
+
+                    if suma_cyfr == 35: 
+                        ilosc_sum_35 += 1
+                    if suma_cyfr == najw_suma_cyfr: 
+                        ilosc_najw_sum += 1
+
+
+            with open('wyniki4.txt', 'w') as plik:
+                plik.writelines(f"Ilosc trojek uporzadkowanych rosnaco: {ilosc_rosnacych}" + "\n")
+                plik.writelines(f"Suma dzielnikow trojek: {suma_dzielnikow}" + "\n")
+                plik.writelines(f"Ilosc sum cyfr rownej 35: {ilosc_sum_35}" + "\n")
+                plik.writelines(f"Najwieksza suma cyfr: {najw_suma_cyfr}" + "\n")
+                plik.writelines(f"Ilosc najwiekszych sum cyfr: {ilosc_najw_sum}" + "\n")
+        </script>
+        <a href="pliki/projekty/matura_2017_zad4.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
