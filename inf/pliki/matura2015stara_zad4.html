@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matura 2015 - stara (zad. 4)</title>
+</head>
+<body>
+    <h1>Matura 2015 - stara (zad. 4)</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            ilosc_slow_z_wieksz_zer = 0
+            ilosc_slow_z_zerami = 0
+            najdluzszy_blok_zer = 0
+            slowa_z_najdluszszym_blokiem_zer = []
+                    
+            with open('slowa.txt', 'r') as plik:
+                for linia in plik.readlines():
+                    linia = linia.strip()
+                    
+                    if linia.count('0') > linia.count('1'):
+                        ilosc_slow_z_wieksz_zer += 1
+                    
+                    if linia[0] == '0' and linia[len(linia) - 1] == '1':
+                        jedynka_index = linia.index('1')
+                    
+                        if not linia.count('0', jedynka_index) > 0:
+                            ilosc_slow_z_zerami += 1
+                    
+                    ciag_zer = 0
+                    for znak in linia:
+                        if znak == '0':
+                            ciag_zer += 1
+                        if znak == '1':
+                            ciag_zer = 0
+                        
+                        if najdluzszy_blok_zer < ciag_zer:
+                            najdluzszy_blok_zer = ciag_zer
+                            slowa_z_najdluszszym_blokiem_zer = []
+                    
+                    if linia.find('0' * najdluzszy_blok_zer) > 0:
+                        slowa_z_najdluszszym_blokiem_zer.append(linia)
+                    
+                    
+            with open('wyniki4.txt', 'w') as plik:
+                plik.writelines(f'Ilosc slow z liczba zer wieksza od liczby jedynek: {ilosc_slow_z_wieksz_zer}\n')
+                plik.writelines(f'Ilosc slow z blokiem jedynek poprzedzonym blokiem zer: {ilosc_slow_z_zerami}\n')
+                plik.writelines(f'Najdluzszy blok zer: {najdluzszy_blok_zer}\n')
+                plik.writelines(f'Slowa zawierajce najdluzszy najdluzszy ciag zer: \n\t{'\n\t'.join(slowa_z_najdluszszym_blokiem_zer)}')
+        </script>
+        <a href="pliki/projekty/matura_2015_stara_zad4.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
