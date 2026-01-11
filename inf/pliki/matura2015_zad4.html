@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matura 2015 (zad. 4)</title>
+</head>
+<body>
+    <h1>Matura 2015 (zad. 4)</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            ilosc_liczb_z_wieksz_zer = 0
+            ilosc_podzielnych_przez_2 = 0
+            ilosc_podzielnych_przez_8 = 0
+            liczba_najw = 2**-64
+            wiersz_liczby_najw = 0
+            liczba_najm = 2**64
+            wiersz_liczby_najm = 0
+
+            with open('inf/pliki/projekty/liczby.txt', 'r') as plik:
+                wiersz = 1
+                for linia in plik.readlines():
+                    linia = linia.strip()
+
+                    if linia.count('0') > linia.count('1'):
+                        ilosc_liczb_z_wieksz_zer += 1
+
+                    if linia.endswith('0'):
+                        ilosc_podzielnych_przez_2 += 1
+
+                    if linia.endswith('000'):
+                        ilosc_podzielnych_przez_8 += 1
+
+                    if int(linia, 2) > liczba_najw:
+                        liczba_najw = int(linia, 2)
+                        wiersz_liczby_najw = wiersz
+
+                    if int(linia, 2) < liczba_najm:
+                        liczba_najm = int(linia, 2)
+                        wiersz_liczby_najm = wiersz
+
+                    wiersz += 1
+
+
+            with open('inf/pliki/projekty/wynik4.txt', 'w') as plik:
+                plik.writelines(f'Ilosc liczb z wieksza liczba zer niz jedynek: {ilosc_liczb_z_wieksz_zer}\n')
+                plik.writelines(f'Ilosc liczb podzielnych przez 2: {ilosc_podzielnych_przez_2}\n')
+                plik.writelines(f'Ilosc liczb podzielnych przez 8: {ilosc_podzielnych_przez_8}\n')
+                plik.writelines(f'Wiersz najmniejszej liczby: {wiersz_liczby_najm}\n')
+                plik.writelines(f'Wiersz najwiekszej liczby: {wiersz_liczby_najw}\n')
+        </script>
+        <a href="pliki/projekty/matura_2015_zad4.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
