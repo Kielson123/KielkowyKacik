@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maksymalna suma ciągu spójnego</title>
+</head>
+<body>
+    <h1>Maksymalna suma ciągu spójnego</h1>
+    <article>
+        <h4>Algorytm I</h4>
+        <script type="text/plain" class="lang-python">
+            A = [23, -49, 6, 23, 24, -42, 40, 4, -48, 39]
+            n = len(A)
+
+            maks_suma = 0
+            for i in range(0, n):
+                for j in range(i, n):
+                    akt_suma = 0
+                    for k in range(i, j):
+                        akt_suma += A[k]
+                    if akt_suma > maks_suma:
+                        maks_suma = akt_suma
+
+            print(maks_suma)
+        </script>
+        <h4>Algorytm II</h4>
+        <script type="text/plain" class="lang-python">
+            A = [23, -49, 6, 23, 24, -42, 40, 4, -48, 39]
+            n = len(A)
+
+            maks_suma = 0
+            for i in range(0, n):
+                akt_suma = 0
+                for j in range(i, n):
+                    akt_suma += A[j]
+                    if akt_suma > maks_suma:
+                        maks_suma = akt_suma
+
+            print(maks_suma)
+        </script>
+        <h4>Algorytm III</h4>
+        <script type="text/plain" class="lang-python">
+            A = [-26, 11, -45, 40, -49, 36, 16, 18, 42, -10]
+            n = len(A)
+                    
+            maks_suma = 0
+            akt_suma = 0
+            for i in range(0, n):
+                if akt_suma + A[i] > 0:
+                    akt_suma += A[i]
+                    if maks_suma < akt_suma:
+                        maks_suma = akt_suma
+                else:
+                    akt_suma = 0
+                    
+            print(maks_suma)
+        </script>
+        <a href="ciagi/projekty/maks_suma_ciagu.zip" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>

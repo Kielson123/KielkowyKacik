@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podciąg spójny</title>
+</head>
+<body>
+    <h1>Podciąg spójny</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            import random
+                    
+            A = []
+            for i in range(7):
+                A.append(random.randint(0, 9))
+                    
+            akt_dl = 0
+            maks_dl = 0
+            n = len(A)
+            for i in range(1, n):
+                if A[i-1] <= A[i]:
+                    akt_dl += 1
+                    if maks_dl < akt_dl:
+                        maks_dl = akt_dl
+                else:
+                    akt_dl = 1
+                    
+            print(A)
+            print(maks_dl)
+        </script>
+        <a href="ciagi/projekty/podciag_spojny.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
