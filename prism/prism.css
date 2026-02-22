@@ -34,7 +34,8 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	padding: 2em;
 	margin: .5em 0;
-	overflow: hidden;
+	overflow-y: hidden;
+	overflow-x: auto;
 	border-radius: 1.5em;
 
 	min-width: 0px;
