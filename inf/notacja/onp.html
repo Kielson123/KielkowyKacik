@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odwrócona notacja polska (ONP)</title>
+</head>
+<body>
+    <h1>Odwrócona notacja polska (ONP)</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            w = '( (8-2)/3 + (1+4)*2 ) / 6'.replace(' ', '')
+            onp = ''
+            stack = []
+                    
+            for i in range(0, len(w)):    
+                if w[i] == '(':
+                    stack.append(w[i])
+                    continue
+                    
+                if w[i] == ')':
+                    while stack != [] and stack[-1] != '(':
+                        onp += stack.pop()
+                    stack.pop()  
+                    continue
+                    
+                if w[i] == '+' or w[i] == '-':
+                    while stack != [] and stack[-1] != '(':
+                        onp += stack.pop()
+                    stack.append(w[i])
+                    continue
+                    
+                if w[i] == '*' or w[i] == '/':
+                    if stack != [] and (stack[-1] == '*' or stack[-1] == '/'):
+                        onp += stack.pop()
+                    stack.append(w[i])
+                    
+                else:
+                    onp += w[i]
+                    
+                    
+            while stack != []:
+                onp += stack[-1]
+                stack.pop()
+                    
+                    
+            print(onp)
+        </script>
+        <a href="notacja/projekty/onp.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
