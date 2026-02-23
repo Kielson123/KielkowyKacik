@@ -10,37 +10,37 @@
         <script type="text/plain" class="lang-python">
             w = '( (8-2)/3 + (1+4)*2 ) / 6'.replace(' ', '')
             onp = ''
-            stack = []
+            stos = []
                     
             for i in range(0, len(w)):    
                 if w[i] == '(':
-                    stack.append(w[i])
+                    stos.append(w[i])
                     continue
                     
                 if w[i] == ')':
-                    while stack != [] and stack[-1] != '(':
-                        onp += stack.pop()
-                    stack.pop()  
+                    while stos != [] and stos[-1] != '(':
+                        onp += stos.pop()
+                    stos.pop()  
                     continue
                     
                 if w[i] == '+' or w[i] == '-':
-                    while stack != [] and stack[-1] != '(':
-                        onp += stack.pop()
-                    stack.append(w[i])
+                    while stos != [] and stos[-1] != '(':
+                        onp += stos.pop()
+                    stos.append(w[i])
                     continue
                     
                 if w[i] == '*' or w[i] == '/':
-                    if stack != [] and (stack[-1] == '*' or stack[-1] == '/'):
-                        onp += stack.pop()
-                    stack.append(w[i])
+                    if stos != [] and (stos[-1] == '*' or stos[-1] == '/'):
+                        onp += stos.pop()
+                    stos.append(w[i])
                     
                 else:
                     onp += w[i]
                     
                     
-            while stack != []:
-                onp += stack[-1]
-                stack.pop()
+            while stos != []:
+                onp += stos[-1]
+                stos.pop()
                     
                     
             print(onp)
