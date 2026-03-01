@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obliczanie wartości wyrażenia w odwróconej notacji polskiej (ONP)</title>
+</head>
+<body>
+    <h1>Obliczanie wartości wyrażenia w odwróconej notacji polskiej (ONP)</h1>
+    <article>
+        <script type="text/plain" class="lang-python">
+            onp = '42-13+*'
+            stos = []
+                    
+            for i in range(0, len(onp)):
+                if onp[i].isdigit():
+                    stos.append(int(onp[i]))
+                    
+                else:
+                    arg2 = stos[-1]
+                    stos.pop()
+                    arg1 = stos[-1]
+                    stos.pop()
+                    
+                    znak = onp[i]
+                    if znak == '+': 
+                        stos.append(arg1 + arg2)
+                    elif znak == '-': 
+                        stos.append(arg1 - arg2)
+                    elif znak == '*': 
+                        stos.append(arg1 * arg2)
+                    elif znak == '/': 
+                        stos.append(arg1 // arg2)
+                    
+            wart = stos[-1]
+            stos.pop()
+            print(wart)
+        </script>
+        <a href="notacjaONP/projekty/obliczanie_onp.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
