@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Łączenie z bazą danych</title>
+</head>
+<body>
+    <h1>Łączenie z bazą danych</h1>
+    <article class="no-line-numbers">
+        <script type="text/plain" class="lang-php">
+            <?php
+                $adres_bazy = "localhost";
+                $uzytkownik = "root";
+                $haslo = "";
+                $nazwa_bazy = "test";
+            
+                $pol = @new mysqli($adres_bazy, $uzytkownik, $haslo, $nazwa_bazy);
+            
+                $sql = "SELECT imie, nazwisko FROM osoby";
+                $wynik = $pol->query($sql);
+            
+                while($wiersz = $wynik->fetch_assoc()) {
+                    echo "Imię: " . $wiersz["imie"]. ", Nazwisko: " . $wiersz["nazwisko"]. "<br>";
+                }
+            
+                $pol->close();
+            ?>
+        </script>
+        <a href="kl4/projekty/sql.php" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+    </article>
+</body>
+</html>
