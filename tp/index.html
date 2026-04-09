@@ -191,8 +191,8 @@
              sqrt(9);        // pierwiastek
              pow(2,3);       // potęga
              round(3.6);     // zaokrąglenie
-             floor(3.9);     // w dół
-             ceil(3.1);      // w górę
+             floor(3.9);     // zaokrąglenie w dół
+             ceil(3.1);      // zaokrąglenie w górę
              rand(1,10);     // liczba losowa
              max(1,5,3);     // największa
              min(1,5,3);     // najmniejsza
@@ -206,11 +206,19 @@
         <h2>6. Formularze</h2>
         <script type="text/plain" class="lang-html">
             <form action="index.php" method="POST">
-                <input name="imie">
+                <fieldset>
+                    <legend>Dane osobowe</legend>
+                    <label for="imie">Imię: </label><input type="text" name="imie" id="imie">
+                    <label for="nazwisko">Nazwisko: </label><input type="text" name="nazwisko" id="nazwisko">
+                    <label for="wiek">Wiek: </label><input type="number" name="wiek" id="wiek">
+                    <input type="submit" value="Prześlij">
+                </fieldset>>
              </form>
         </script>
         <script type="text/plain" class="lang-php">
             $imie = $_POST['imie'];
+            $nazwisko = $_POST['nazwisko'];
+            $wiek = $_POST['wiek'];
         </script>
     </div>
 
