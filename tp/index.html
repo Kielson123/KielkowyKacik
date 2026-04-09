@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Notatka PHP</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../prism/prism.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #eee;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #00d4ff;
+        }
+        code {
+            background: #222;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        script[type="text/plain"] {
+            display: block;
+            background: #222;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: auto;
+            white-space: pre;
+            font-family: monospace;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>1. Typy danych</h2>
+        <ul>
+            <li>int</li>
+            <li>float</li>
+            <li>string</li>
+            <li>bool</li>
+            <li>array</li>
+        </ul>
+
+        <h3>Zmienne</h3>
+        <script type="text/plain" class="lang-php">
+            $wiek = 18;
+             $imie = "Jan";
+        </script>
+
+        <h3>Stałe</h3>
+        <script type="text/plain" class="lang-php">
+            define("PI", 3.14);
+             const NAZWA = "PHP";
+        </script>
+    </div>
+
+
+    <div class="section">
+        <h2>2. Wyświetlanie danych</h2>
+
+        <p><b>echo</b> – podstawowe wyświetlanie</p>
+        <script type="text/plain" class="lang-php">
+            echo "Hello";
+        </script>
+
+        <p><b>print</b> – zwraca wartość 1</p>
+        <script type="text/plain" class="lang-php">
+            print "Hello";
+        </script>
+
+        <p><b>printf</b> – formatowanie</p>
+        <script type="text/plain" class="lang-php">
+            printf("Mam %d lat", 18);
+        </script>
+
+        <p><b>sprintf</b> – zwraca string</p>
+        <script type="text/plain" class="lang-php">
+            $x = sprintf("Wynik: %d", 10);
+        </script>
+
+        <p><b>var_dump</b> – typ i wartość</p>
+        <script type="text/plain" class="lang-php">
+            var_dump($wiek);
+        </script>
+
+        <p><b>print_r</b> – tablice</p>
+        <script type="text/plain" class="lang-php">
+            print_r($tab);
+        </script>
+
+        <p><b>die / exit</b> – kończy program</p>
+        <script type="text/plain" class="lang-php">
+            die("Błąd");
+        </script>
+    </div>
+
+
+    <div class="section">
+        <h2>3. Pętle</h2>
+
+        <p><b>while</b> – działa dopóki warunek prawdziwy</p>
+        <script type="text/plain" class="lang-php">
+            $i = 0;
+             while ($i < 5) {
+                 echo $i;
+                 $i++;
+             }
+        </script>
+
+        <p><b>do...while</b> – wykona się min. raz</p>
+        <script type="text/plain" class="lang-php">
+            $i = 0;
+             do {
+                 echo $i;
+                 $i++;
+             } while ($i < 5);
+        </script>
+
+        <p><b>for</b> – gdy znamy ilość powtórzeń</p>
+        <script type="text/plain" class="lang-php">
+            for ($i = 0; $i < 5; $i++) {
+                 echo $i;
+             }
+        </script>
+
+        <p><b>foreach</b> – dla tablic</p>
+        <script type="text/plain" class="lang-php">
+            foreach ($tab as $x) {
+                 echo $x;
+             }
+        </script>
+    </div>
+
+
+    <div class="section">
+        <h2>4. Warunki</h2>
+
+        <p><b>if</b> – wykonuje kod gdy warunek spełniony</p>
+        <script type="text/plain" class="lang-php">
+            if ($x > 0) {
+                 echo "OK";
+             }
+        </script>
+
+        <p><b>if / else</b></p>
+        <script type="text/plain" class="lang-php">
+            if ($x > 0) {
+                 echo "+";
+             } else {
+                 echo "-";
+             }
+        </script>
+
+        <p><b>elseif</b></p>
+        <script type="text/plain" class="lang-php">
+            if ($x > 0) {
+                 // ...
+             } elseif ($x == 0) {
+                 // ...
+             } else {
+                 // ...
+             }
+        </script>
+
+        <p><b>switch</b></p>
+        <script type="text/plain" class="lang-php">
+            switch ($x) {
+                 case 1:
+                     echo "1";
+                     break;
+             }
+        </script>
+    </div>
+
+
+    <div class="section">
+        <h2>5. Matematyka</h2>
+        <script type="text/plain" class="lang-php">
+            abs(-5);
+             sqrt(9);
+             pow(2, 3);
+             round(3.6);
+             floor(3.9);
+             ceil(3.1);
+             rand(1, 10);
+             mt_rand(1, 10);
+             max(1, 5, 3);
+             min(1, 5, 3);
+             pi();
+             log(10);
+             exp(2);
+             sin(0);
+             cos(0);
+             tan(0);
+        </script>
+    </div>
+
+
+    <div class="section">
+        <h2>6. Formularze</h2>
+        <script type="text/plain" class="lang-html">
+            <form method="POST">
+                <input name="imie">
+             </form>
+        </script>
+        <script type="text/plain" class="lang-php">
+            $imie = $_POST['imie'];
+        </script>
+    </div>
+
+
+    <div class="section">
+        <h2>7. Funkcje</h2>
+        <p>Podstawowa:</p>
+        <script type="text/plain" class="lang-php">
+            function f($x) {
+                return $x;
+             }
+        </script>
+        <p>Opcjonalne:</p>
+        <script type="text/plain" class="lang-php">
+            function f($x = "test") {
+                return $x;
+             }
+        </script>
+        <p>Wiele argumentów:</p>
+        <script type="text/plain" class="lang-php">
+            function suma(...$x) {
+                return array_sum($x);
+             }
+        </script>
+    </div>
+
+
+    <div class="section">
+        <h2>8. Tablice</h2>
+        <script type="text/plain" class="lang-php">
+            $tab = [1, 2, 3];
+             echo $tab[0];
+        </script>
+        <script type="text/plain" class="lang-php">
+            $osoba = ["imie" => "Jan"];
+             echo $osoba["imie"];
+        </script>
+    </div>
+
+
+    <script src="../prism/prism.js"></script>
+</body>
+</html>
