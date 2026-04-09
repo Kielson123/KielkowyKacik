@@ -44,6 +44,9 @@
             <li>string</li>
             <li>bool</li>
             <li>array</li>
+            <li>object</li>
+            <li>null</li>
+            <li>resource</li>
         </ul>
 
         <h3>Zmienne</h3>
@@ -68,27 +71,22 @@
             echo "Hello";
         </script>
 
-        <p><b>print</b> – zwraca wartość 1</p>
+        <p><b>print</b> – wyświetla i zwraca wartość 1</p>
         <script type="text/plain" class="lang-php">
             print "Hello";
         </script>
 
-        <p><b>printf</b> – formatowanie</p>
+        <p><b>printf</b> – wyświetlanie z formatowaniem</p>
         <script type="text/plain" class="lang-php">
             printf("Mam %d lat", 18);
         </script>
 
-        <p><b>sprintf</b> – zwraca string</p>
-        <script type="text/plain" class="lang-php">
-            $x = sprintf("Wynik: %d", 10);
-        </script>
-
-        <p><b>var_dump</b> – typ i wartość</p>
+        <p><b>var_dump</b> – wyświetla typ i wartość</p>
         <script type="text/plain" class="lang-php">
             var_dump($wiek);
         </script>
 
-        <p><b>print_r</b> – tablice</p>
+        <p><b>print_r</b> – wyświetlanie tablic</p>
         <script type="text/plain" class="lang-php">
             print_r($tab);
         </script>
@@ -140,14 +138,14 @@
     <div class="section">
         <h2>4. Warunki</h2>
 
-        <p><b>if</b> – wykonuje kod gdy warunek spełniony</p>
+        <h4>if</h4>
         <script type="text/plain" class="lang-php">
             if ($x > 0) {
                  echo "OK";
              }
         </script>
 
-        <p><b>if / else</b></p>
+        <h4>else</h4>
         <script type="text/plain" class="lang-php">
             if ($x > 0) {
                  echo "+";
@@ -156,7 +154,7 @@
              }
         </script>
 
-        <p><b>elseif</b></p>
+        <h4>elseif</h4>
         <script type="text/plain" class="lang-php">
             if ($x > 0) {
                  // ...
@@ -167,36 +165,33 @@
              }
         </script>
 
-        <p><b>switch</b></p>
+        <h4>switch</h4>
         <script type="text/plain" class="lang-php">
             switch ($x) {
                  case 1:
-                     echo "1";
+                     echo "Jeden";
                      break;
+                 default:
+                     echo "Inne";
              }
         </script>
     </div>
 
 
     <div class="section">
-        <h2>5. Matematyka</h2>
+        <h2>5. Metody matematyczne</h2>
         <script type="text/plain" class="lang-php">
-            abs(-5);
-             sqrt(9);
-             pow(2, 3);
-             round(3.6);
-             floor(3.9);
-             ceil(3.1);
-             rand(1, 10);
-             mt_rand(1, 10);
-             max(1, 5, 3);
-             min(1, 5, 3);
-             pi();
-             log(10);
-             exp(2);
-             sin(0);
-             cos(0);
-             tan(0);
+            abs(-5);        // wartość bezwzględna
+             sqrt(9);        // pierwiastek
+             pow(2,3);       // potęga
+             round(3.6);     // zaokrąglenie
+             floor(3.9);     // w dół
+             ceil(3.1);      // w górę
+             rand(1,10);     // liczba losowa
+             max(1,5,3);     // największa
+             min(1,5,3);     // najmniejsza
+             pi();           // liczba PI
+             log(10);        // logarytm
         </script>
     </div>
 
@@ -204,7 +199,7 @@
     <div class="section">
         <h2>6. Formularze</h2>
         <script type="text/plain" class="lang-html">
-            <form method="POST">
+            <form action="index.php" method="POST">
                 <input name="imie">
              </form>
         </script>
@@ -222,7 +217,7 @@
                 return $x;
              }
         </script>
-        <p>Opcjonalne:</p>
+        <p>Opcjonalne(z domyślną wartością):</p>
         <script type="text/plain" class="lang-php">
             function f($x = "test") {
                 return $x;
@@ -247,6 +242,12 @@
             $osoba = ["imie" => "Jan"];
              echo $osoba["imie"];
         </script>
+    </div>
+
+
+    <div class="section">
+        <h2>9. Schematy blokowe</h2>
+        <img src="./schemat-blokowy.jpg" alt="Schemat blokowy">
     </div>
 
 
