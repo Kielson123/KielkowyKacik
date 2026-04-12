@@ -1,8 +1,8 @@
 def f(x):
     return (1/4)*(x*x) - 2
 
-a = 2
-b = 4
+a = 2 # lewa granica 
+b = 4 # prawa granica
 eps = float(input("Podaj dokładność: ")) # np. 0.001
 
 x0 = (a + b) / 2

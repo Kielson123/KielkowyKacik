@@ -7,53 +7,6 @@
 <body>
     <h1>Przybliżanie liczby π</h1>
     <article class="no-line-numbers">
-        <h4>Metoda prostokątów</h4>
-        <script type="text/plain" class="lang-python">
-            import math
-
-            def f(x):
-                return math.sqrt(1 - x*x)
-
-            n = int(input("Podaj ilość prostokątów: "))
-            a = -1
-            b = 1
-
-            dx = (b - a) / n
-            s = 0
-            x = a
-            for i in range(n):
-                x += dx
-                s += dx * f(x)
-
-            pi = s * 2.0
-            print(pi)
-        </script>
-        <a href="przyblizenia/projekty/przyblizanie_pi_pro.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
-        <h4>Metoda trapezów</h4>
-        <script type="text/plain" class="lang-python">
-            import math
-                                
-            def f(x):
-                return math.sqrt(1 - x*x)
-                    
-            n = int(input("Podaj ilość trapezów: "))
-            a = -1
-            b = 1
-                    
-            dx = (b - a) / n
-            s = 0
-            x = a
-            f1 = f(x)
-            for i in range(n):
-                x += dx
-                f2 = f(x)
-                s += dx * (f1 + f2) / 2
-                f1 = f2
-                    
-            pi = s * 2.0
-            print(pi)
-        </script>
-        <a href="przyblizenia/projekty/przyblizanie_pi_tra.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
         <h4>Metoda Monte Carlo</h4>
         <script type="text/plain" class="lang-python">
             import random
@@ -71,6 +24,13 @@
             print(pi)
         </script>
         <a href="przyblizenia/projekty/przyblizanie_pi_mont.py" class="download" download><img src="../download.png" class="download_img">  Pobierz</a>
+        <h4>Metoda prostokątów i trapezów</h4>
+        <p>Aby przybliżyć π metodą prostokątów lub trapezów należy jako funkcji uzyć: </p>
+        <script type="text/plain" class="lang-python">
+            def f(x):
+                return math.sqrt(1 - x*x)
+        </script>
+        <p>A następnie pomnożyć końcowy wynik przez 2</p>
     </article>
 </body>
 </html>
